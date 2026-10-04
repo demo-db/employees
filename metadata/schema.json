@@ -80,7 +80,7 @@
           "primaryKeyOrder": 1,
           "primaryKeyPosition": 1,
           "defaultValue": null,
-          "description": "Original two-character department code."
+          "description": "Original four-character department code, stored as text."
         },
         {
           "name": "dept_name",

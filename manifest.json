@@ -115,7 +115,7 @@
       "hire_date": "Hire date from the source sample, stored as ISO date text."
     },
     "departments": {
-      "dept_no": "Original two-character department code.",
+      "dept_no": "Original four-character department code, stored as text.",
       "dept_name": "Original department name."
     },
     "dept_emp": {
