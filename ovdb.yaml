@@ -1,0 +1,44 @@
+{
+  "format": "ovdb-manifest/draft-1",
+  "id": "employees",
+  "title": "Employees (browser edition)",
+  "description": "A reproducible, FK-closed browser-sized edition of the MySQL Employees sample, retaining 1,024 selected employees and their associated employment history.",
+  "homepage": "https://employees.demodb.dev/",
+  "url": "https://demodb.dev/employees/",
+  "deployment": {
+    "engine": "sqlite",
+    "url": "https://cloud.openvaultdb.com/ovdb/dbs/employees",
+    "discovery": "https://demodb.dev/.well-known/openvaultdb"
+  },
+  "model": {
+    "address": "modelspec://github.com/demo-db/employees/employees",
+    "modelspec": "model/employees.modelspec.json",
+    "hcl": "model/employees.modelspec.hcl"
+  },
+  "meaning": {
+    "file": "model/employees.meaning.yaml",
+    "graph": {
+      "id": "employees",
+      "address": "meaning://github.com/demo-db/employees"
+    }
+  },
+  "publisher": {
+    "name": "DemoDB",
+    "url": "https://github.com/demo-db",
+    "repository": "https://github.com/demo-db/employees"
+  },
+  "licences": {
+    "data": "CC-BY-SA-3.0",
+    "model": "CC-BY-SA-3.0",
+    "meaning": "CC-BY-SA-3.0"
+  },
+  "recordsets": [
+    "employees",
+    "departments",
+    "dept_emp",
+    "dept_manager",
+    "titles",
+    "salaries"
+  ],
+  "recordset_entities": {}
+}
