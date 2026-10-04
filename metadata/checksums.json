@@ -1,0 +1,97 @@
+{
+  "contractVersion": 1,
+  "files": {
+    "artifacts/data/departments.csv": {
+      "sha256": "66012d8a4031ea7016ce51597aa7c90eefe5a0a79a13cb9b9def51fa65833114",
+      "bytes": 171
+    },
+    "artifacts/data/departments.json": {
+      "sha256": "adbdb52cb5beb3277c719b40d9c36b0cb8e56ef8931e1d8f67c4921fdd0d3326",
+      "bytes": 453
+    },
+    "artifacts/data/dept_emp.csv": {
+      "sha256": "b7b9072fc6e5b29927c5057140cbf6546a0093240473fa22bd21e7a954bcde4e",
+      "bytes": 37248
+    },
+    "artifacts/data/dept_emp.json": {
+      "sha256": "da8b99873a85bb70a6bea1682617810d46da8c8649517b8db2857ec2d0092ab1",
+      "bytes": 100330
+    },
+    "artifacts/data/dept_manager.csv": {
+      "sha256": "c2504908d773b92714bbb3082752aa26a4f214177891b5ca9435016bbd9038b5",
+      "bytes": 849
+    },
+    "artifacts/data/dept_manager.json": {
+      "sha256": "f5423085ce400fbe2a2f8c47c1e21e1f524d89a9e464872b573add4f8f4f61f2",
+      "bytes": 2163
+    },
+    "artifacts/data/employees.csv": {
+      "sha256": "aac22ce885bc85ddfe6ac642d3cc77a8e1686c4844887d3cfef1e2d5d8797550",
+      "bytes": 46688
+    },
+    "artifacts/data/employees.json": {
+      "sha256": "16f6a6cc37b07a2487cdae10ee60f4d2c726198da2e0569746629c1e04f941d8",
+      "bytes": 137771
+    },
+    "artifacts/data/salaries.csv": {
+      "sha256": "3d0c6ace2172386bbce9b2382975772a3923ea5764be9264caa1bee310fddd79",
+      "bytes": 336495
+    },
+    "artifacts/data/salaries.json": {
+      "sha256": "4b1ee4fbcddda254fc311e03bf8a27b87d4107524bbb7ced71c2892bf7dd6fe5",
+      "bytes": 859894
+    },
+    "artifacts/data/titles.csv": {
+      "sha256": "d5f9a619d68fbe6c37b47b72285e542d118070fa196dc350612149bd376374db",
+      "bytes": 59947
+    },
+    "artifacts/data/titles.json": {
+      "sha256": "b3b2a9705660245d6f20b62a81c0088b2a30c80331b6e60aaad29c124c82bfb1",
+      "bytes": 142215
+    },
+    "artifacts/employees.sql": {
+      "sha256": "27441a463f375752110e38da2665a204135a576db079d15cf9bb6ae683929ae7",
+      "bytes": 982246
+    },
+    "artifacts/employees.sqlite": {
+      "sha256": "46b49dd0e141cd8db66d57680a10febfccc15e6f54dc7b8f3c2316b55e11c5f0",
+      "bytes": 876544
+    },
+    "manifest.json": {
+      "sha256": "31672113cc953530b410e1429e2ccebc4d5ee03755c36ed151d6fe4e4a9a12a5",
+      "bytes": 13325
+    },
+    "metadata/contract.json": {
+      "sha256": "83f4be360cda03981f54bb35b6f3e27f6c947e3f49c48117d57c867974a22f99",
+      "bytes": 55967
+    },
+    "metadata/schema.json": {
+      "sha256": "0c759e416ab901a808f215343e45aa94936d29433f20a55dbd384084d55deb54",
+      "bytes": 37398
+    },
+    "model/employees.meaning.yaml": {
+      "sha256": "497d684839961eeea852454a31098f782efc8c9efdc794479c7edc8caefc1fd3",
+      "bytes": 4761
+    },
+    "model/employees.modelspec.hcl": {
+      "sha256": "d7a7e8ed13b3398e62d6163a2b4ed89c7713c15f968aebe632dd8c87f9fd015b",
+      "bytes": 2101
+    },
+    "model/employees.modelspec.json": {
+      "sha256": "5ccf485602215108bac6a3d1bf87f3240faf177c44e19292279af397c13791bd",
+      "bytes": 2943
+    },
+    "ovdb-database.json": {
+      "sha256": "8f0181fb39c5da279368d0a1c8ecbfb1942061f03482bc4ce64b95c9d6434e3c",
+      "bytes": 11527
+    },
+    "ovdb.yaml": {
+      "sha256": "f206140edbf475243e0472a56c15e80d4ab5cc951dac6f3445bd8ba3101499db",
+      "bytes": 1290
+    },
+    "schemas/ovdb-database-draft-1.schema.json": {
+      "sha256": "2424ef00acd462ab5a8abc546fe2d1fffbbb5397e312332aedc77b3e73109488",
+      "bytes": 5371
+    }
+  }
+}

@@ -1,0 +1,404 @@
+{
+  "format": "ovdb-database/draft-1",
+  "id": "https://demodb.dev/employees/",
+  "localId": "employees",
+  "serverId": "https://demodb.dev/ovdb",
+  "serverDbBaseUrl": "https://demodb.dev/ovdb/db/employees/",
+  "title": "Employees (browser edition)",
+  "description": "A reproducible, FK-closed browser-sized edition of the MySQL Employees sample, retaining 1,024 selected employees and their associated employment history.",
+  "homepage": "https://employees.demodb.dev/",
+  "apiUrl": "https://demodb.dev/ovdb/v1/databases/employees",
+  "capabilities": {
+    "read": true,
+    "query": false,
+    "write": false
+  },
+  "deployment": {
+    "engine": "sqlite",
+    "url": "https://cloud.openvaultdb.com/ovdb/dbs/employees",
+    "discovery": "https://demodb.dev/.well-known/openvaultdb"
+  },
+  "model": {
+    "id": "modelspec://github.com/demo-db/employees/employees",
+    "url": "https://employees.demodb.dev/model/employees.modelspec.json",
+    "hclUrl": "https://employees.demodb.dev/model/employees.modelspec.hcl"
+  },
+  "meaning": {
+    "id": "meaning://github.com/demo-db/employees",
+    "url": "https://employees.demodb.dev/model/employees.meaning.yaml"
+  },
+  "publisher": {
+    "name": "DemoDB",
+    "url": "https://github.com/demo-db",
+    "repository": "https://github.com/demo-db/employees"
+  },
+  "provenance": {
+    "repository": "https://github.com/datacharmer/test_db",
+    "revision": "e324b56193ca506ab7cc1ab143a9153d8c4535d7",
+    "path": "employees.sql",
+    "sha256": "46b49dd0e141cd8db66d57680a10febfccc15e6f54dc7b8f3c2316b55e11c5f0",
+    "license": "CC-BY-SA-3.0",
+    "notes": "Browser-sized subset of the upstream MySQL Employees sample, not a copy of the full dataset. The exact source header credits MySQL AB (2007/2008), original temporal data to Fusheng Wang and Carlo Zaniolo, the current schema to Giuseppe Maxia, and XML-to-relational conversion to Patrick Crews; it states CC BY-SA 3.0 Unported and says the data is fabricated. The selected employee set is IDs 10001 through 11000 inclusive plus every distinct employee ID listed in the source dept_manager rows (1,024 total). All nine departments and all 24 manager assignments are included, with every dept_emp, titles, and salaries row for those employees. All six native tables and both native views are retained. The source repo inserts in batches, and salaries span three dump files; CI downloads every exact upstream source file at the pinned commit, checks its hash, rebuilds the subset, and compares the full logical SQLite database. SQLite fixture file bytes can vary by SQLite library version; the committed gzip is checked by its exact compressed and decoded hashes and by full logical contents. The upstream sample says its data is fabricated and does not correspond to real people. The sha256 identifies the decoded SQLite fixture; source.inputSha256 identifies the compressed dataFile bytes."
+  },
+  "licences": {
+    "data": "CC-BY-SA-3.0",
+    "model": "CC-BY-SA-3.0",
+    "meaning": "CC-BY-SA-3.0"
+  },
+  "recordsets": [
+    {
+      "name": "employees",
+      "kind": "table",
+      "description": "The selected employees from the pinned Employees sample, retaining their source identifiers and demographics.",
+      "rowCount": 1024,
+      "columns": [
+        {
+          "name": "emp_no",
+          "type": "INTEGER",
+          "nullable": false,
+          "primaryKey": true,
+          "primaryKeyPosition": 1,
+          "defaultValue": null
+        },
+        {
+          "name": "birth_date",
+          "type": "TEXT",
+          "nullable": false,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        },
+        {
+          "name": "first_name",
+          "type": "TEXT",
+          "nullable": false,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        },
+        {
+          "name": "last_name",
+          "type": "TEXT",
+          "nullable": false,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        },
+        {
+          "name": "gender",
+          "type": "TEXT",
+          "nullable": false,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        },
+        {
+          "name": "hire_date",
+          "type": "TEXT",
+          "nullable": false,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        }
+      ],
+      "primaryKey": [
+        {
+          "column": "emp_no",
+          "position": 1
+        }
+      ],
+      "foreignKeys": [],
+      "modelEntity": "employees"
+    },
+    {
+      "name": "departments",
+      "kind": "table",
+      "description": "All nine departments in the source sample.",
+      "rowCount": 9,
+      "columns": [
+        {
+          "name": "dept_no",
+          "type": "TEXT",
+          "nullable": false,
+          "primaryKey": true,
+          "primaryKeyPosition": 1,
+          "defaultValue": null
+        },
+        {
+          "name": "dept_name",
+          "type": "TEXT",
+          "nullable": false,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        }
+      ],
+      "primaryKey": [
+        {
+          "column": "dept_no",
+          "position": 1
+        }
+      ],
+      "foreignKeys": [],
+      "modelEntity": "departments"
+    },
+    {
+      "name": "dept_emp",
+      "kind": "table",
+      "description": "Department assignments and date ranges for selected employees.",
+      "rowCount": 1127,
+      "columns": [
+        {
+          "name": "emp_no",
+          "type": "INTEGER",
+          "nullable": false,
+          "primaryKey": true,
+          "primaryKeyPosition": 1,
+          "defaultValue": null
+        },
+        {
+          "name": "dept_no",
+          "type": "TEXT",
+          "nullable": false,
+          "primaryKey": true,
+          "primaryKeyPosition": 2,
+          "defaultValue": null
+        },
+        {
+          "name": "from_date",
+          "type": "TEXT",
+          "nullable": false,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        },
+        {
+          "name": "to_date",
+          "type": "TEXT",
+          "nullable": false,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        }
+      ],
+      "primaryKey": [
+        {
+          "column": "emp_no",
+          "position": 1
+        },
+        {
+          "column": "dept_no",
+          "position": 2
+        }
+      ],
+      "foreignKeys": [
+        {
+          "column": "dept_no",
+          "table": "departments",
+          "referencedColumn": "dept_no",
+          "constraint": 0,
+          "position": 0
+        },
+        {
+          "column": "emp_no",
+          "table": "employees",
+          "referencedColumn": "emp_no",
+          "constraint": 1,
+          "position": 0
+        }
+      ],
+      "modelEntity": "dept_emp"
+    },
+    {
+      "name": "dept_manager",
+      "kind": "table",
+      "description": "All manager assignments in the source sample.",
+      "rowCount": 24,
+      "columns": [
+        {
+          "name": "emp_no",
+          "type": "INTEGER",
+          "nullable": false,
+          "primaryKey": true,
+          "primaryKeyPosition": 1,
+          "defaultValue": null
+        },
+        {
+          "name": "dept_no",
+          "type": "TEXT",
+          "nullable": false,
+          "primaryKey": true,
+          "primaryKeyPosition": 2,
+          "defaultValue": null
+        },
+        {
+          "name": "from_date",
+          "type": "TEXT",
+          "nullable": false,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        },
+        {
+          "name": "to_date",
+          "type": "TEXT",
+          "nullable": false,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        }
+      ],
+      "primaryKey": [
+        {
+          "column": "emp_no",
+          "position": 1
+        },
+        {
+          "column": "dept_no",
+          "position": 2
+        }
+      ],
+      "foreignKeys": [
+        {
+          "column": "dept_no",
+          "table": "departments",
+          "referencedColumn": "dept_no",
+          "constraint": 0,
+          "position": 0
+        },
+        {
+          "column": "emp_no",
+          "table": "employees",
+          "referencedColumn": "emp_no",
+          "constraint": 1,
+          "position": 0
+        }
+      ],
+      "modelEntity": "dept_manager"
+    },
+    {
+      "name": "titles",
+      "kind": "table",
+      "description": "Title history for selected employees.",
+      "rowCount": 1524,
+      "columns": [
+        {
+          "name": "emp_no",
+          "type": "INTEGER",
+          "nullable": false,
+          "primaryKey": true,
+          "primaryKeyPosition": 1,
+          "defaultValue": null
+        },
+        {
+          "name": "title",
+          "type": "TEXT",
+          "nullable": false,
+          "primaryKey": true,
+          "primaryKeyPosition": 2,
+          "defaultValue": null
+        },
+        {
+          "name": "from_date",
+          "type": "TEXT",
+          "nullable": false,
+          "primaryKey": true,
+          "primaryKeyPosition": 3,
+          "defaultValue": null
+        },
+        {
+          "name": "to_date",
+          "type": "TEXT",
+          "nullable": true,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        }
+      ],
+      "primaryKey": [
+        {
+          "column": "emp_no",
+          "position": 1
+        },
+        {
+          "column": "title",
+          "position": 2
+        },
+        {
+          "column": "from_date",
+          "position": 3
+        }
+      ],
+      "foreignKeys": [
+        {
+          "column": "emp_no",
+          "table": "employees",
+          "referencedColumn": "emp_no",
+          "constraint": 0,
+          "position": 0
+        }
+      ],
+      "modelEntity": "titles"
+    },
+    {
+      "name": "salaries",
+      "kind": "table",
+      "description": "Salary history for selected employees.",
+      "rowCount": 9876,
+      "columns": [
+        {
+          "name": "emp_no",
+          "type": "INTEGER",
+          "nullable": false,
+          "primaryKey": true,
+          "primaryKeyPosition": 1,
+          "defaultValue": null
+        },
+        {
+          "name": "salary",
+          "type": "INTEGER",
+          "nullable": false,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        },
+        {
+          "name": "from_date",
+          "type": "TEXT",
+          "nullable": false,
+          "primaryKey": true,
+          "primaryKeyPosition": 2,
+          "defaultValue": null
+        },
+        {
+          "name": "to_date",
+          "type": "TEXT",
+          "nullable": false,
+          "primaryKey": false,
+          "primaryKeyPosition": null,
+          "defaultValue": null
+        }
+      ],
+      "primaryKey": [
+        {
+          "column": "emp_no",
+          "position": 1
+        },
+        {
+          "column": "from_date",
+          "position": 2
+        }
+      ],
+      "foreignKeys": [
+        {
+          "column": "emp_no",
+          "table": "employees",
+          "referencedColumn": "emp_no",
+          "constraint": 0,
+          "position": 0
+        }
+      ],
+      "modelEntity": "salaries"
+    }
+  ]
+}

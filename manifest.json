@@ -1,0 +1,365 @@
+{
+  "contractVersion": 1,
+  "id": "employees",
+  "name": "Employees (browser edition)",
+  "description": "A reproducible, FK-closed browser-sized edition of the MySQL Employees sample, retaining 1,024 selected employees and their associated employment history.",
+  "domain": "Human Resources",
+  "siteHost": "employees.demodb.dev",
+  "aliases": [],
+  "source": {
+    "repository": "https://github.com/datacharmer/test_db",
+    "version": "MySQL Employees sample dataset (schema and data credited 2007–2008)",
+    "revision": "e324b56193ca506ab7cc1ab143a9153d8c4535d7",
+    "path": "employees.sql",
+    "license": "CC-BY-SA-3.0",
+    "licenseFile": "LICENSE",
+    "notes": "Browser-sized subset of the upstream MySQL Employees sample, not a copy of the full dataset. The exact source header credits MySQL AB (2007/2008), original temporal data to Fusheng Wang and Carlo Zaniolo, the current schema to Giuseppe Maxia, and XML-to-relational conversion to Patrick Crews; it states CC BY-SA 3.0 Unported and says the data is fabricated. The selected employee set is IDs 10001 through 11000 inclusive plus every distinct employee ID listed in the source dept_manager rows (1,024 total). All nine departments and all 24 manager assignments are included, with every dept_emp, titles, and salaries row for those employees. All six native tables and both native views are retained. The source repo inserts in batches, and salaries span three dump files; CI downloads every exact upstream source file at the pinned commit, checks its hash, rebuilds the subset, and compares the full logical SQLite database. SQLite fixture file bytes can vary by SQLite library version; the committed gzip is checked by its exact compressed and decoded hashes and by full logical contents. The upstream sample says its data is fabricated and does not correspond to real people.",
+    "recipe": [
+      {
+        "path": "employees.sql",
+        "sha256": "cfe3f89f7b21326c516ba65d253e35e795877e9bb60c388520d915f348403a9a"
+      },
+      {
+        "path": "load_departments.dump",
+        "sha256": "2271cfef20852e395ec72ce269a119b2c799a973a9277c971409ea53d5a17cfa"
+      },
+      {
+        "path": "load_dept_emp.dump",
+        "sha256": "52cc6dbc1b139254533264bd5d44a6012377f34ecf1eef693ddfb349aeb40ed6"
+      },
+      {
+        "path": "load_dept_manager.dump",
+        "sha256": "d9cff691f09f2399f5490e435deb8c932946246aaf483b8f1cbef0bc556aa1dc"
+      },
+      {
+        "path": "load_employees.dump",
+        "sha256": "ba004ebc5fcdad59544fd8ced262d1793ca02c7936c5d7668a355c6a683d6fa8"
+      },
+      {
+        "path": "load_salaries1.dump",
+        "sha256": "aa485ea7b1553f1660d6db5a93e9ede0a0c182cb923f9471a39594f7ca967c5b"
+      },
+      {
+        "path": "load_salaries2.dump",
+        "sha256": "cad589bff736cb575358d7806e4e4a13e28a2e9c714c2fb51fbe4db74a5706fa"
+      },
+      {
+        "path": "load_salaries3.dump",
+        "sha256": "75fc473d2472341fbfd635d6f4853c63645051829a9c7a1a18ee819fe5816f45"
+      },
+      {
+        "path": "load_titles.dump",
+        "sha256": "dcd382989c46719e1e216ffef4919483f0f71d52da517c37c22d39cdaf9bc044"
+      }
+    ],
+    "databaseSha256": "46b49dd0e141cd8db66d57680a10febfccc15e6f54dc7b8f3c2316b55e11c5f0",
+    "inputCompression": "gzip",
+    "inputSha256": "ed59fc6b30599422bd9b5762fd3ebfcdee8bb57a1ecf10c47a0bbcdfdec608ba",
+    "fullTableCounts": {
+      "departments": 9,
+      "employees": 300024,
+      "dept_manager": 24,
+      "dept_emp": 331603,
+      "titles": 443308,
+      "salaries": 2844047
+    }
+  },
+  "dataFile": "data-source/source.sqlite.gz",
+  "subset": {
+    "selection": "employee emp_no 10001..11000 inclusive, plus every distinct emp_no from upstream dept_manager",
+    "selectedEmployeeCount": 1024,
+    "rowCounts": {
+      "departments": 9,
+      "employees": 1024,
+      "dept_manager": 24,
+      "dept_emp": 1127,
+      "titles": 1524,
+      "salaries": 9876
+    }
+  },
+  "semantics": {
+    "tableConcepts": {
+      "employees": [
+        "employee"
+      ],
+      "departments": [
+        "department"
+      ],
+      "dept_emp": [
+        "department-assignment"
+      ],
+      "dept_manager": [
+        "department-manager-assignment"
+      ],
+      "titles": [
+        "employee-title-history"
+      ],
+      "salaries": [
+        "employee-salary-history"
+      ]
+    }
+  },
+  "tableDescriptions": {
+    "employees": "The selected employees from the pinned Employees sample, retaining their source identifiers and demographics.",
+    "departments": "All nine departments in the source sample.",
+    "dept_emp": "Department assignments and date ranges for selected employees.",
+    "dept_manager": "All manager assignments in the source sample.",
+    "titles": "Title history for selected employees.",
+    "salaries": "Salary history for selected employees."
+  },
+  "columnDescriptions": {
+    "employees": {
+      "emp_no": "Original upstream employee identifier; selected rows are 10001–11000 plus all 24 source managers.",
+      "birth_date": "Birth date from the source sample, stored as ISO date text.",
+      "gender": "Source M/F gender code.",
+      "hire_date": "Hire date from the source sample, stored as ISO date text."
+    },
+    "departments": {
+      "dept_no": "Original four-character department code, stored as text.",
+      "dept_name": "Original department name."
+    },
+    "dept_emp": {
+      "from_date": "Start date of the source department assignment.",
+      "to_date": "End date of the source assignment; 9999-01-01 denotes current assignment in this sample."
+    },
+    "dept_manager": {
+      "from_date": "Start date of the source manager assignment.",
+      "to_date": "End date of the source assignment; 9999-01-01 denotes current assignment in this sample."
+    },
+    "titles": {
+      "from_date": "Start date of the source title history row.",
+      "to_date": "End date of the source title history row; NULL is retained when present in source."
+    },
+    "salaries": {
+      "salary": "Original integer salary amount; no currency is declared by the upstream schema.",
+      "from_date": "Start date of the source salary history row.",
+      "to_date": "End date of the source salary history row; source values are retained."
+    }
+  },
+  "capabilities": {
+    "exports": [
+      "sqlite",
+      "csv",
+      "json",
+      "sql"
+    ],
+    "ovdb": {
+      "available": false,
+      "canonicalUrl": "https://demodb.dev/employees/",
+      "serverId": "https://demodb.dev/ovdb",
+      "serverDbBaseUrl": "https://demodb.dev/ovdb/db/employees/",
+      "connection": "https://demodb.dev/ovdb/v1/databases/employees",
+      "query": false,
+      "readOnly": true,
+      "deploymentVerified": false
+    },
+    "datatug": {
+      "available": true,
+      "mode": "static-json"
+    }
+  },
+  "queries": [
+    {
+      "title": "Current department assignments",
+      "description": "List the current department assignment for each employee with a current assignment, using the source view.",
+      "sql": "SELECT e.emp_no, e.first_name, e.last_name, d.dept_name, c.from_date FROM current_dept_emp AS c JOIN employees AS e USING (emp_no) JOIN departments AS d USING (dept_no) ORDER BY d.dept_name, e.last_name, e.first_name LIMIT 25;"
+    },
+    {
+      "title": "Salary history for selected employees",
+      "description": "Show retained salary history rows for the browser edition.",
+      "sql": "SELECT emp_no, salary, from_date, to_date FROM salaries ORDER BY emp_no, from_date LIMIT 25;"
+    }
+  ],
+  "generator": {
+    "publisher": {
+      "name": "DemoDB",
+      "url": "https://github.com/demo-db",
+      "repository": "https://github.com/demo-db/employees"
+    },
+    "licences": {
+      "model": "CC-BY-SA-3.0",
+      "meaning": "CC-BY-SA-3.0"
+    },
+    "model": {
+      "address": "modelspec://github.com/demo-db/employees/employees",
+      "moduleId": "github.com/demo-db/employees/employees",
+      "name": "employees",
+      "version": "0.1.0"
+    },
+    "ovdb": {
+      "query": false,
+      "deployment": {
+        "engine": "sqlite",
+        "url": "https://cloud.openvaultdb.com/ovdb/dbs/employees",
+        "discovery": "https://demodb.dev/.well-known/openvaultdb"
+      },
+      "recordsets": [
+        "employees",
+        "departments",
+        "dept_emp",
+        "dept_manager",
+        "titles",
+        "salaries"
+      ]
+    },
+    "meaning": {
+      "id": "employees",
+      "address": "meaning://github.com/demo-db/employees",
+      "name": "Employees (browser edition)",
+      "description": "Selected employees, departments, department assignments, titles, and salary histories from the MySQL Employees sample.",
+      "license": "CC-BY-SA-3.0",
+      "core": {
+        "address": "meaning://github.com/meaninggraph/core",
+        "revision": "982916d73f0a35ff2558b0062f58aa3ac4f24d97"
+      },
+      "concepts": [
+        {
+          "id": "employee",
+          "kind": "entity",
+          "label": "Employee",
+          "description": "A person represented in the selected rows of the upstream Employees sample.",
+          "extends": "meaning://github.com/meaninggraph/core/employee?ref=982916d73f0a35ff2558b0062f58aa3ac4f24d97",
+          "bindings": [
+            {
+              "recordset": "employees",
+              "role": "entity"
+            },
+            {
+              "recordset": "employees",
+              "property": "emp_no",
+              "role": "identifier"
+            },
+            {
+              "recordset": "dept_emp",
+              "property": "emp_no",
+              "role": "foreign-key"
+            },
+            {
+              "recordset": "dept_manager",
+              "property": "emp_no",
+              "role": "foreign-key"
+            },
+            {
+              "recordset": "titles",
+              "property": "emp_no",
+              "role": "foreign-key"
+            },
+            {
+              "recordset": "salaries",
+              "property": "emp_no",
+              "role": "foreign-key"
+            }
+          ]
+        },
+        {
+          "id": "department",
+          "kind": "entity",
+          "label": "Department",
+          "description": "One of the nine departments in the upstream Employees sample.",
+          "bindings": [
+            {
+              "recordset": "departments",
+              "role": "entity"
+            },
+            {
+              "recordset": "departments",
+              "property": "dept_no",
+              "role": "identifier"
+            },
+            {
+              "recordset": "departments",
+              "property": "dept_name",
+              "role": "display-name"
+            },
+            {
+              "recordset": "dept_emp",
+              "property": "dept_no",
+              "role": "foreign-key"
+            },
+            {
+              "recordset": "dept_manager",
+              "property": "dept_no",
+              "role": "foreign-key"
+            }
+          ]
+        },
+        {
+          "id": "department-assignment",
+          "kind": "entity",
+          "label": "Department assignment",
+          "description": "A dated department assignment for a selected employee.",
+          "bindings": [
+            {
+              "recordset": "dept_emp",
+              "role": "entity"
+            }
+          ]
+        },
+        {
+          "id": "department-manager-assignment",
+          "kind": "entity",
+          "label": "Department manager assignment",
+          "description": "A dated assignment of one of the source managers to a department.",
+          "bindings": [
+            {
+              "recordset": "dept_manager",
+              "role": "entity"
+            }
+          ]
+        },
+        {
+          "id": "employee-title-history",
+          "kind": "entity",
+          "label": "Employee title history",
+          "description": "A title and effective date range recorded for a selected employee.",
+          "bindings": [
+            {
+              "recordset": "titles",
+              "role": "entity"
+            }
+          ]
+        },
+        {
+          "id": "job-title",
+          "kind": "attribute",
+          "label": "Job title",
+          "description": "A title string recorded in one employee title-history row.",
+          "of": "employee-title-history",
+          "bindings": [
+            {
+              "recordset": "titles",
+              "property": "title",
+              "role": "value"
+            }
+          ]
+        },
+        {
+          "id": "employee-salary-history",
+          "kind": "entity",
+          "label": "Employee salary history",
+          "description": "A salary value and effective date range recorded for a selected employee; the upstream source declares no currency.",
+          "bindings": [
+            {
+              "recordset": "salaries",
+              "role": "entity"
+            }
+          ]
+        },
+        {
+          "id": "salary-amount",
+          "kind": "attribute",
+          "label": "Salary amount",
+          "description": "The integer salary amount as provided by the source sample. No currency unit is specified in the upstream schema.",
+          "of": "employee-salary-history",
+          "bindings": [
+            {
+              "recordset": "salaries",
+              "property": "salary",
+              "role": "value"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

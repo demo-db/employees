@@ -1,0 +1,152 @@
+{
+  "modelspec": "1.0-draft",
+  "module": {
+    "id": "github.com/demo-db/employees/employees",
+    "name": "employees",
+    "version": "0.1.0"
+  },
+  "entities": {
+    "departments": {
+      "key": [
+        "dept_no"
+      ],
+      "properties": {
+        "dept_no": {
+          "required": true,
+          "type": "string"
+        },
+        "dept_name": {
+          "required": true,
+          "type": "string"
+        }
+      }
+    },
+    "dept_emp": {
+      "key": [
+        "emp_no",
+        "dept_no"
+      ],
+      "properties": {
+        "emp_no": {
+          "required": true,
+          "entity": "employees"
+        },
+        "dept_no": {
+          "required": true,
+          "entity": "departments"
+        },
+        "from_date": {
+          "required": true,
+          "type": "string"
+        },
+        "to_date": {
+          "required": true,
+          "type": "string"
+        }
+      }
+    },
+    "dept_manager": {
+      "key": [
+        "emp_no",
+        "dept_no"
+      ],
+      "properties": {
+        "emp_no": {
+          "required": true,
+          "entity": "employees"
+        },
+        "dept_no": {
+          "required": true,
+          "entity": "departments"
+        },
+        "from_date": {
+          "required": true,
+          "type": "string"
+        },
+        "to_date": {
+          "required": true,
+          "type": "string"
+        }
+      }
+    },
+    "employees": {
+      "key": [
+        "emp_no"
+      ],
+      "properties": {
+        "emp_no": {
+          "required": true,
+          "type": "int"
+        },
+        "birth_date": {
+          "required": true,
+          "type": "string"
+        },
+        "first_name": {
+          "required": true,
+          "type": "string"
+        },
+        "last_name": {
+          "required": true,
+          "type": "string"
+        },
+        "gender": {
+          "required": true,
+          "type": "string"
+        },
+        "hire_date": {
+          "required": true,
+          "type": "string"
+        }
+      }
+    },
+    "salaries": {
+      "key": [
+        "emp_no",
+        "from_date"
+      ],
+      "properties": {
+        "emp_no": {
+          "required": true,
+          "entity": "employees"
+        },
+        "salary": {
+          "required": true,
+          "type": "int"
+        },
+        "from_date": {
+          "required": true,
+          "type": "string"
+        },
+        "to_date": {
+          "required": true,
+          "type": "string"
+        }
+      }
+    },
+    "titles": {
+      "key": [
+        "emp_no",
+        "title",
+        "from_date"
+      ],
+      "properties": {
+        "emp_no": {
+          "required": true,
+          "entity": "employees"
+        },
+        "title": {
+          "required": true,
+          "type": "string"
+        },
+        "from_date": {
+          "required": true,
+          "type": "string"
+        },
+        "to_date": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
