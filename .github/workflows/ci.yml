@@ -39,9 +39,9 @@ jobs:
           RUNNER_TEMP: ${{ runner.temp }}
         run: |
           set -eu
-          base="https://raw.githubusercontent.com/demo-db/websites/7b3091478a235f292b8dddf22fa1f64599367e55"
+          base="https://raw.githubusercontent.com/demo-db/websites/79a8acb0a90423558b8bd315ffca1a359b3e32cb"
           curl --fail --silent --show-error --location "$base/scripts/provider-tools/generate.py" -o "$RUNNER_TEMP/generate-provider.py"
-          printf '%s  %s\n' '3dcdf38a2d1405ec99da8ed83a41d4476181a2fbc3089c4f9f29ac0b330f5921' "$RUNNER_TEMP/generate-provider.py" | sha256sum --check
+          printf '%s  %s\n' 'e09960f6167611c6eaa456c06780a193d542c2053688d2c99debe50a2c33b9da' "$RUNNER_TEMP/generate-provider.py" | sha256sum --check
           curl --fail --silent --show-error --location "$base/schemas/ovdb-database-draft-1.schema.json" -o "$RUNNER_TEMP/ovdb-database-draft-1.schema.json"
           printf '%s  %s\n' '2424ef00acd462ab5a8abc546fe2d1fffbbb5397e312332aedc77b3e73109488' "$RUNNER_TEMP/ovdb-database-draft-1.schema.json" | sha256sum --check
           mkdir -p "$RUNNER_TEMP/provider-generator/scripts/provider-tools" "$RUNNER_TEMP/provider-generator/schemas"

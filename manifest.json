@@ -171,6 +171,7 @@
     }
   ],
   "generator": {
+    "emitModelSpdxLicense": true,
     "publisher": {
       "name": "DemoDB",
       "url": "https://github.com/demo-db",
