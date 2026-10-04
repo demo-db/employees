@@ -58,12 +58,12 @@
       "bytes": 876544
     },
     "manifest.json": {
-      "sha256": "31672113cc953530b410e1429e2ccebc4d5ee03755c36ed151d6fe4e4a9a12a5",
-      "bytes": 13325
+      "sha256": "2c59493941087ac3846a2105b818c995ec2639636590fcc733d7fcc352471499",
+      "bytes": 13359
     },
     "metadata/contract.json": {
-      "sha256": "83f4be360cda03981f54bb35b6f3e27f6c947e3f49c48117d57c867974a22f99",
-      "bytes": 55967
+      "sha256": "fb895607de3bc09af5f3c6e2062f293d46f464456ae50b7b5e231996adab9c00",
+      "bytes": 56003
     },
     "metadata/schema.json": {
       "sha256": "0c759e416ab901a808f215343e45aa94936d29433f20a55dbd384084d55deb54",
@@ -74,8 +74,8 @@
       "bytes": 4761
     },
     "model/employees.modelspec.hcl": {
-      "sha256": "d7a7e8ed13b3398e62d6163a2b4ed89c7713c15f968aebe632dd8c87f9fd015b",
-      "bytes": 2101
+      "sha256": "5a84638165cdcbdfa64973eafde03acc20e99423c01689cbbf7647309eb91918",
+      "bytes": 2141
     },
     "model/employees.modelspec.json": {
       "sha256": "5ccf485602215108bac6a3d1bf87f3240faf177c44e19292279af397c13791bd",
