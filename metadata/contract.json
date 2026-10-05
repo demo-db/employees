@@ -146,14 +146,14 @@
         "sql"
       ],
       "ovdb": {
-        "available": false,
+        "available": true,
         "canonicalUrl": "https://demodb.dev/employees/",
         "serverId": "https://demodb.dev/ovdb",
         "serverDbBaseUrl": "https://demodb.dev/ovdb/db/employees/",
         "connection": "https://demodb.dev/ovdb/v1/databases/employees",
-        "query": false,
+        "query": true,
         "readOnly": true,
-        "deploymentVerified": false
+        "deploymentVerified": true
       },
       "datatug": {
         "available": true,
@@ -190,7 +190,7 @@
         "version": "0.1.0"
       },
       "ovdb": {
-        "query": false,
+        "query": true,
         "deployment": {
           "engine": "sqlite",
           "url": "https://cloud.openvaultdb.com/ovdb/dbs/employees",

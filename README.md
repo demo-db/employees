@@ -6,4 +6,4 @@ The upstream project says the sample data is fabricated and does not correspond 
 
 The pinned upstream source and reproducible selection are documented in [`data-source/README.md`](data-source/README.md). Run `python3 scripts/fetch-source.py --destination /tmp/employees-source` to download and hash-check every required upstream file, then `python3 scripts/rebuild-source.py --source-dir /tmp/employees-source --check` to verify the checked-in compressed SQLite fixture. The converter preserves native table and view names, primary/unique keys and foreign keys, ISO dates, integer salary values, and exact text values. It does not invent rows or currency information.
 
-The public OVDB query capability remains disabled until a live backend mount is verified.
+The verified read-only OVDB mount provides record lookups and query access; writes remain disabled.
