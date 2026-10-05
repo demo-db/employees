@@ -66,9 +66,16 @@ jobs:
               raise SystemExit(f"expected six tables and two native views, got {len(tables)} and {len(views)}")
           if sum(item["rowCount"] for item in tables) != 13584:
               raise SystemExit("selected physical table row count differs from the reviewed browser edition")
+          manifest = json.loads(Path("manifest.json").read_text(encoding="utf-8"))
           descriptor = json.loads(Path("ovdb-database.json").read_text(encoding="utf-8"))
-          if descriptor["capabilities"]["query"]:
-              raise SystemExit("query capability must remain disabled until backend mount verification")
+          capabilities = manifest["capabilities"]["ovdb"]
+          generator = manifest["generator"]["ovdb"]
+          if capabilities["available"] is not True or capabilities["readOnly"] is not True or capabilities["query"] is not True or capabilities["deploymentVerified"] is not True:
+              raise SystemExit("OVDB must be declared available only for its verified read-only query mount")
+          if generator["query"] is not capabilities["query"]:
+              raise SystemExit("generator OVDB query capability differs from website capabilities")
+          if descriptor["capabilities"] != {"read": True, "query": True, "write": False}:
+              raise SystemExit("public descriptor must advertise verified read/query and disabled writes")
           PY
 
       - name: Install pinned ModelSpec and MeaningGraph tools
