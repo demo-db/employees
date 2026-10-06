@@ -20,16 +20,58 @@
         "dept_no"
       ],
       "transportId": "encoded-native-primary-key",
+      "sourceSql": "CREATE TABLE departments (\n                dept_no TEXT NOT NULL PRIMARY KEY,\n                dept_name TEXT NOT NULL UNIQUE\n            )",
+      "indexes": [
+        {
+          "name": "sqlite_autoindex_departments_2",
+          "unique": true,
+          "origin": "u",
+          "partial": false,
+          "sql": null,
+          "columns": [
+            "dept_name"
+          ],
+          "key_columns": [
+            "dept_name"
+          ]
+        },
+        {
+          "name": "sqlite_autoindex_departments_1",
+          "unique": true,
+          "origin": "pk",
+          "partial": false,
+          "sql": null,
+          "columns": [
+            "dept_no"
+          ],
+          "key_columns": [
+            "dept_no"
+          ]
+        }
+      ],
       "foreignKeys": [],
+      "foreignKeyConstraints": [],
       "columns": [
         {
           "nativeName": "dept_no",
           "declaredType": "TEXT",
+          "sourceNotNull": true,
+          "primaryKeyPosition": 1,
+          "sourceDeclaredNullable": false,
+          "defaultValue": null,
+          "ingitdbType": "string",
+          "exportRequired": true,
           "encoding": "native-json"
         },
         {
           "nativeName": "dept_name",
           "declaredType": "TEXT",
+          "sourceNotNull": true,
+          "primaryKeyPosition": 0,
+          "sourceDeclaredNullable": false,
+          "defaultValue": null,
+          "ingitdbType": "string",
+          "exportRequired": true,
           "encoding": "native-json"
         }
       ],
@@ -47,41 +89,119 @@
         "dept_no"
       ],
       "transportId": "encoded-native-primary-key",
+      "sourceSql": "CREATE TABLE dept_emp (\n                emp_no INTEGER NOT NULL,\n                dept_no TEXT NOT NULL,\n                from_date TEXT NOT NULL,\n                to_date TEXT NOT NULL,\n                PRIMARY KEY (emp_no, dept_no),\n                FOREIGN KEY (emp_no) REFERENCES employees(emp_no) ON DELETE CASCADE,\n                FOREIGN KEY (dept_no) REFERENCES departments(dept_no) ON DELETE CASCADE\n            )",
+      "indexes": [
+        {
+          "name": "sqlite_autoindex_dept_emp_1",
+          "unique": true,
+          "origin": "pk",
+          "partial": false,
+          "sql": null,
+          "columns": [
+            "emp_no",
+            "dept_no"
+          ],
+          "key_columns": [
+            "emp_no",
+            "dept_no"
+          ]
+        }
+      ],
       "foreignKeys": [
         {
           "id": 0,
           "sequence": 0,
           "table": "departments",
           "from": "dept_no",
-          "to": "dept_no"
+          "to": "dept_no",
+          "onUpdate": "NO ACTION",
+          "onDelete": "CASCADE",
+          "match": "NONE"
         },
         {
           "id": 1,
           "sequence": 0,
           "table": "employees",
           "from": "emp_no",
-          "to": "emp_no"
+          "to": "emp_no",
+          "onUpdate": "NO ACTION",
+          "onDelete": "CASCADE",
+          "match": "NONE"
+        }
+      ],
+      "foreignKeyConstraints": [
+        {
+          "id": 0,
+          "localColumns": [
+            "dept_no"
+          ],
+          "referencedTable": "departments",
+          "referencedColumns": [
+            "dept_no"
+          ],
+          "onUpdate": "NO ACTION",
+          "onDelete": "CASCADE",
+          "match": "NONE",
+          "enforced": false
+        },
+        {
+          "id": 1,
+          "localColumns": [
+            "emp_no"
+          ],
+          "referencedTable": "employees",
+          "referencedColumns": [
+            "emp_no"
+          ],
+          "onUpdate": "NO ACTION",
+          "onDelete": "CASCADE",
+          "match": "NONE",
+          "enforced": false
         }
       ],
       "columns": [
         {
           "nativeName": "emp_no",
           "declaredType": "INTEGER",
+          "sourceNotNull": true,
+          "primaryKeyPosition": 1,
+          "sourceDeclaredNullable": false,
+          "defaultValue": null,
+          "ingitdbType": "int",
+          "exportRequired": true,
           "encoding": "native-json"
         },
         {
           "nativeName": "dept_no",
           "declaredType": "TEXT",
+          "sourceNotNull": true,
+          "primaryKeyPosition": 2,
+          "sourceDeclaredNullable": false,
+          "defaultValue": null,
+          "ingitdbType": "string",
+          "exportRequired": true,
           "encoding": "native-json"
         },
         {
           "nativeName": "from_date",
           "declaredType": "TEXT",
+          "sourceNotNull": true,
+          "primaryKeyPosition": 0,
+          "sourceDeclaredNullable": false,
+          "defaultValue": null,
+          "ingitdbType": "string",
+          "exportRequired": true,
           "encoding": "native-json"
         },
         {
           "nativeName": "to_date",
           "declaredType": "TEXT",
+          "sourceNotNull": true,
+          "primaryKeyPosition": 0,
+          "sourceDeclaredNullable": false,
+          "defaultValue": null,
+          "ingitdbType": "string",
+          "exportRequired": true,
           "encoding": "native-json"
         }
       ],
@@ -99,41 +219,119 @@
         "dept_no"
       ],
       "transportId": "encoded-native-primary-key",
+      "sourceSql": "CREATE TABLE dept_manager (\n                emp_no INTEGER NOT NULL,\n                dept_no TEXT NOT NULL,\n                from_date TEXT NOT NULL,\n                to_date TEXT NOT NULL,\n                PRIMARY KEY (emp_no, dept_no),\n                FOREIGN KEY (emp_no) REFERENCES employees(emp_no) ON DELETE CASCADE,\n                FOREIGN KEY (dept_no) REFERENCES departments(dept_no) ON DELETE CASCADE\n            )",
+      "indexes": [
+        {
+          "name": "sqlite_autoindex_dept_manager_1",
+          "unique": true,
+          "origin": "pk",
+          "partial": false,
+          "sql": null,
+          "columns": [
+            "emp_no",
+            "dept_no"
+          ],
+          "key_columns": [
+            "emp_no",
+            "dept_no"
+          ]
+        }
+      ],
       "foreignKeys": [
         {
           "id": 0,
           "sequence": 0,
           "table": "departments",
           "from": "dept_no",
-          "to": "dept_no"
+          "to": "dept_no",
+          "onUpdate": "NO ACTION",
+          "onDelete": "CASCADE",
+          "match": "NONE"
         },
         {
           "id": 1,
           "sequence": 0,
           "table": "employees",
           "from": "emp_no",
-          "to": "emp_no"
+          "to": "emp_no",
+          "onUpdate": "NO ACTION",
+          "onDelete": "CASCADE",
+          "match": "NONE"
+        }
+      ],
+      "foreignKeyConstraints": [
+        {
+          "id": 0,
+          "localColumns": [
+            "dept_no"
+          ],
+          "referencedTable": "departments",
+          "referencedColumns": [
+            "dept_no"
+          ],
+          "onUpdate": "NO ACTION",
+          "onDelete": "CASCADE",
+          "match": "NONE",
+          "enforced": false
+        },
+        {
+          "id": 1,
+          "localColumns": [
+            "emp_no"
+          ],
+          "referencedTable": "employees",
+          "referencedColumns": [
+            "emp_no"
+          ],
+          "onUpdate": "NO ACTION",
+          "onDelete": "CASCADE",
+          "match": "NONE",
+          "enforced": false
         }
       ],
       "columns": [
         {
           "nativeName": "emp_no",
           "declaredType": "INTEGER",
+          "sourceNotNull": true,
+          "primaryKeyPosition": 1,
+          "sourceDeclaredNullable": false,
+          "defaultValue": null,
+          "ingitdbType": "int",
+          "exportRequired": true,
           "encoding": "native-json"
         },
         {
           "nativeName": "dept_no",
           "declaredType": "TEXT",
+          "sourceNotNull": true,
+          "primaryKeyPosition": 2,
+          "sourceDeclaredNullable": false,
+          "defaultValue": null,
+          "ingitdbType": "string",
+          "exportRequired": true,
           "encoding": "native-json"
         },
         {
           "nativeName": "from_date",
           "declaredType": "TEXT",
+          "sourceNotNull": true,
+          "primaryKeyPosition": 0,
+          "sourceDeclaredNullable": false,
+          "defaultValue": null,
+          "ingitdbType": "string",
+          "exportRequired": true,
           "encoding": "native-json"
         },
         {
           "nativeName": "to_date",
           "declaredType": "TEXT",
+          "sourceNotNull": true,
+          "primaryKeyPosition": 0,
+          "sourceDeclaredNullable": false,
+          "defaultValue": null,
+          "ingitdbType": "string",
+          "exportRequired": true,
           "encoding": "native-json"
         }
       ],
@@ -150,36 +348,75 @@
         "emp_no"
       ],
       "transportId": "encoded-native-primary-key",
+      "sourceSql": "CREATE TABLE employees (\n                emp_no INTEGER NOT NULL PRIMARY KEY,\n                birth_date TEXT NOT NULL,\n                first_name TEXT NOT NULL,\n                last_name TEXT NOT NULL,\n                gender TEXT NOT NULL CHECK (gender IN ('M', 'F')),\n                hire_date TEXT NOT NULL\n            )",
+      "indexes": [],
       "foreignKeys": [],
+      "foreignKeyConstraints": [],
       "columns": [
         {
           "nativeName": "emp_no",
           "declaredType": "INTEGER",
+          "sourceNotNull": true,
+          "primaryKeyPosition": 1,
+          "sourceDeclaredNullable": false,
+          "defaultValue": null,
+          "ingitdbType": "int",
+          "exportRequired": true,
           "encoding": "native-json"
         },
         {
           "nativeName": "birth_date",
           "declaredType": "TEXT",
+          "sourceNotNull": true,
+          "primaryKeyPosition": 0,
+          "sourceDeclaredNullable": false,
+          "defaultValue": null,
+          "ingitdbType": "string",
+          "exportRequired": true,
           "encoding": "native-json"
         },
         {
           "nativeName": "first_name",
           "declaredType": "TEXT",
+          "sourceNotNull": true,
+          "primaryKeyPosition": 0,
+          "sourceDeclaredNullable": false,
+          "defaultValue": null,
+          "ingitdbType": "string",
+          "exportRequired": true,
           "encoding": "native-json"
         },
         {
           "nativeName": "last_name",
           "declaredType": "TEXT",
+          "sourceNotNull": true,
+          "primaryKeyPosition": 0,
+          "sourceDeclaredNullable": false,
+          "defaultValue": null,
+          "ingitdbType": "string",
+          "exportRequired": true,
           "encoding": "native-json"
         },
         {
           "nativeName": "gender",
           "declaredType": "TEXT",
+          "sourceNotNull": true,
+          "primaryKeyPosition": 0,
+          "sourceDeclaredNullable": false,
+          "defaultValue": null,
+          "ingitdbType": "string",
+          "exportRequired": true,
           "encoding": "native-json"
         },
         {
           "nativeName": "hire_date",
           "declaredType": "TEXT",
+          "sourceNotNull": true,
+          "primaryKeyPosition": 0,
+          "sourceDeclaredNullable": false,
+          "defaultValue": null,
+          "ingitdbType": "string",
+          "exportRequired": true,
           "encoding": "native-json"
         }
       ],
@@ -197,34 +434,95 @@
         "from_date"
       ],
       "transportId": "encoded-native-primary-key",
+      "sourceSql": "CREATE TABLE salaries (\n                emp_no INTEGER NOT NULL,\n                salary INTEGER NOT NULL,\n                from_date TEXT NOT NULL,\n                to_date TEXT NOT NULL,\n                PRIMARY KEY (emp_no, from_date),\n                FOREIGN KEY (emp_no) REFERENCES employees(emp_no) ON DELETE CASCADE\n            )",
+      "indexes": [
+        {
+          "name": "sqlite_autoindex_salaries_1",
+          "unique": true,
+          "origin": "pk",
+          "partial": false,
+          "sql": null,
+          "columns": [
+            "emp_no",
+            "from_date"
+          ],
+          "key_columns": [
+            "emp_no",
+            "from_date"
+          ]
+        }
+      ],
       "foreignKeys": [
         {
           "id": 0,
           "sequence": 0,
           "table": "employees",
           "from": "emp_no",
-          "to": "emp_no"
+          "to": "emp_no",
+          "onUpdate": "NO ACTION",
+          "onDelete": "CASCADE",
+          "match": "NONE"
+        }
+      ],
+      "foreignKeyConstraints": [
+        {
+          "id": 0,
+          "localColumns": [
+            "emp_no"
+          ],
+          "referencedTable": "employees",
+          "referencedColumns": [
+            "emp_no"
+          ],
+          "onUpdate": "NO ACTION",
+          "onDelete": "CASCADE",
+          "match": "NONE",
+          "enforced": false
         }
       ],
       "columns": [
         {
           "nativeName": "emp_no",
           "declaredType": "INTEGER",
+          "sourceNotNull": true,
+          "primaryKeyPosition": 1,
+          "sourceDeclaredNullable": false,
+          "defaultValue": null,
+          "ingitdbType": "int",
+          "exportRequired": true,
           "encoding": "native-json"
         },
         {
           "nativeName": "salary",
           "declaredType": "INTEGER",
+          "sourceNotNull": true,
+          "primaryKeyPosition": 0,
+          "sourceDeclaredNullable": false,
+          "defaultValue": null,
+          "ingitdbType": "int",
+          "exportRequired": true,
           "encoding": "native-json"
         },
         {
           "nativeName": "from_date",
           "declaredType": "TEXT",
+          "sourceNotNull": true,
+          "primaryKeyPosition": 2,
+          "sourceDeclaredNullable": false,
+          "defaultValue": null,
+          "ingitdbType": "string",
+          "exportRequired": true,
           "encoding": "native-json"
         },
         {
           "nativeName": "to_date",
           "declaredType": "TEXT",
+          "sourceNotNull": true,
+          "primaryKeyPosition": 0,
+          "sourceDeclaredNullable": false,
+          "defaultValue": null,
+          "ingitdbType": "string",
+          "exportRequired": true,
           "encoding": "native-json"
         }
       ],
@@ -243,34 +541,97 @@
         "from_date"
       ],
       "transportId": "encoded-native-primary-key",
+      "sourceSql": "CREATE TABLE titles (\n                emp_no INTEGER NOT NULL,\n                title TEXT NOT NULL,\n                from_date TEXT NOT NULL,\n                to_date TEXT,\n                PRIMARY KEY (emp_no, title, from_date),\n                FOREIGN KEY (emp_no) REFERENCES employees(emp_no) ON DELETE CASCADE\n            )",
+      "indexes": [
+        {
+          "name": "sqlite_autoindex_titles_1",
+          "unique": true,
+          "origin": "pk",
+          "partial": false,
+          "sql": null,
+          "columns": [
+            "emp_no",
+            "title",
+            "from_date"
+          ],
+          "key_columns": [
+            "emp_no",
+            "title",
+            "from_date"
+          ]
+        }
+      ],
       "foreignKeys": [
         {
           "id": 0,
           "sequence": 0,
           "table": "employees",
           "from": "emp_no",
-          "to": "emp_no"
+          "to": "emp_no",
+          "onUpdate": "NO ACTION",
+          "onDelete": "CASCADE",
+          "match": "NONE"
+        }
+      ],
+      "foreignKeyConstraints": [
+        {
+          "id": 0,
+          "localColumns": [
+            "emp_no"
+          ],
+          "referencedTable": "employees",
+          "referencedColumns": [
+            "emp_no"
+          ],
+          "onUpdate": "NO ACTION",
+          "onDelete": "CASCADE",
+          "match": "NONE",
+          "enforced": false
         }
       ],
       "columns": [
         {
           "nativeName": "emp_no",
           "declaredType": "INTEGER",
+          "sourceNotNull": true,
+          "primaryKeyPosition": 1,
+          "sourceDeclaredNullable": false,
+          "defaultValue": null,
+          "ingitdbType": "int",
+          "exportRequired": true,
           "encoding": "native-json"
         },
         {
           "nativeName": "title",
           "declaredType": "TEXT",
+          "sourceNotNull": true,
+          "primaryKeyPosition": 2,
+          "sourceDeclaredNullable": false,
+          "defaultValue": null,
+          "ingitdbType": "string",
+          "exportRequired": true,
           "encoding": "native-json"
         },
         {
           "nativeName": "from_date",
           "declaredType": "TEXT",
+          "sourceNotNull": true,
+          "primaryKeyPosition": 3,
+          "sourceDeclaredNullable": false,
+          "defaultValue": null,
+          "ingitdbType": "string",
+          "exportRequired": true,
           "encoding": "native-json"
         },
         {
           "nativeName": "to_date",
           "declaredType": "TEXT",
+          "sourceNotNull": false,
+          "primaryKeyPosition": 0,
+          "sourceDeclaredNullable": true,
+          "defaultValue": null,
+          "ingitdbType": "string",
+          "exportRequired": false,
           "encoding": "native-json"
         }
       ],
