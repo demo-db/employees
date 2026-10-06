@@ -1,5 +1,10 @@
 {
-  "format": "demodb-ingitdb-export/v1",
+  "format": "demodb-storage-export/v2",
+  "generator": "datatug-dalgo-to-ingitdb",
+  "recordFormat": "json",
+  "generatorVersion": "0.61.1",
+  "generatorCommit": "e983dd2732b31c8d59cf80c5367ec07c4d9d5f48",
+  "generatorSha256": "567fa6b0f278bb64c659322b8a2a6cd53f8aeca65a20a2ec5e48e191bba44bbf",
   "datasetId": "employees",
   "source": {
     "repository": "https://github.com/datacharmer/test_db",
@@ -14,7 +19,7 @@
   "tables": [
     {
       "nativeName": "departments",
-      "collection": "departments_fc3bfaae",
+      "collection": "departments",
       "rows": 9,
       "primaryKey": [
         "dept_no"
@@ -55,6 +60,8 @@
         {
           "nativeName": "dept_no",
           "declaredType": "TEXT",
+          "bigqueryName": "dept_no",
+          "bigqueryType": "STRING",
           "sourceNotNull": true,
           "primaryKeyPosition": 1,
           "sourceDeclaredNullable": false,
@@ -66,6 +73,8 @@
         {
           "nativeName": "dept_name",
           "declaredType": "TEXT",
+          "bigqueryName": "dept_name",
+          "bigqueryType": "STRING",
           "sourceNotNull": true,
           "primaryKeyPosition": 0,
           "sourceDeclaredNullable": false,
@@ -76,13 +85,27 @@
         }
       ],
       "records": {
-        "path": "departments_fc3bfaae/records.json",
-        "sha256": "c0ce0a2081531897bae15b64190ebf316ef94f3619a30a10284eecf0b029fe57"
+        "path": "departments/records.json",
+        "sha256": "1e912f23dfeb6b576fbffc7f9616815731ecdacb813cbdc5ebc0bfc45e026390"
+      },
+      "files": {
+        "ingitdb": {
+          "path": "ingitdb/departments/records.json",
+          "sha256": "1e912f23dfeb6b576fbffc7f9616815731ecdacb813cbdc5ebc0bfc45e026390"
+        },
+        "bigqueryRows": {
+          "path": "bigquery/departments/rows.ndjson",
+          "sha256": "86cd7b7a8ebbb395aa6870669cdad1c126894915baddcf8a5773975dcca366a9"
+        },
+        "bigquerySchema": {
+          "path": "bigquery/departments/schema.json",
+          "sha256": "e49f5c53c0e92a8ba5b76c8e574a005fb919422ee353497a21ecba8ebaaf2a6b"
+        }
       }
     },
     {
       "nativeName": "dept_emp",
-      "collection": "dept_emp_a9828463",
+      "collection": "dept_emp",
       "rows": 1127,
       "primaryKey": [
         "emp_no",
@@ -163,6 +186,8 @@
         {
           "nativeName": "emp_no",
           "declaredType": "INTEGER",
+          "bigqueryName": "emp_no",
+          "bigqueryType": "INTEGER",
           "sourceNotNull": true,
           "primaryKeyPosition": 1,
           "sourceDeclaredNullable": false,
@@ -174,6 +199,8 @@
         {
           "nativeName": "dept_no",
           "declaredType": "TEXT",
+          "bigqueryName": "dept_no",
+          "bigqueryType": "STRING",
           "sourceNotNull": true,
           "primaryKeyPosition": 2,
           "sourceDeclaredNullable": false,
@@ -185,6 +212,8 @@
         {
           "nativeName": "from_date",
           "declaredType": "TEXT",
+          "bigqueryName": "from_date",
+          "bigqueryType": "STRING",
           "sourceNotNull": true,
           "primaryKeyPosition": 0,
           "sourceDeclaredNullable": false,
@@ -196,6 +225,8 @@
         {
           "nativeName": "to_date",
           "declaredType": "TEXT",
+          "bigqueryName": "to_date",
+          "bigqueryType": "STRING",
           "sourceNotNull": true,
           "primaryKeyPosition": 0,
           "sourceDeclaredNullable": false,
@@ -206,13 +237,27 @@
         }
       ],
       "records": {
-        "path": "dept_emp_a9828463/records.json",
-        "sha256": "df00b0afcaf1977d8c6013ba3525a9d417233519966e04e82ee2b498a919ac3a"
+        "path": "dept_emp/records.json",
+        "sha256": "d71e349925180ceda8c11bc0757b5057a1943a771207335b325b36bd6bc3d31f"
+      },
+      "files": {
+        "ingitdb": {
+          "path": "ingitdb/dept_emp/records.json",
+          "sha256": "d71e349925180ceda8c11bc0757b5057a1943a771207335b325b36bd6bc3d31f"
+        },
+        "bigqueryRows": {
+          "path": "bigquery/dept_emp/rows.ndjson",
+          "sha256": "ce0ad52d67f725b598e91b1494f2cbb2e51690d91bddc15ae6533c24a4e38974"
+        },
+        "bigquerySchema": {
+          "path": "bigquery/dept_emp/schema.json",
+          "sha256": "acbb449bd17a8911fa34b5954bde3ab8d3fe041e67a50b1b6ab481c314fa52c8"
+        }
       }
     },
     {
       "nativeName": "dept_manager",
-      "collection": "dept_manager_f1b717ef",
+      "collection": "dept_manager",
       "rows": 24,
       "primaryKey": [
         "emp_no",
@@ -293,6 +338,8 @@
         {
           "nativeName": "emp_no",
           "declaredType": "INTEGER",
+          "bigqueryName": "emp_no",
+          "bigqueryType": "INTEGER",
           "sourceNotNull": true,
           "primaryKeyPosition": 1,
           "sourceDeclaredNullable": false,
@@ -304,6 +351,8 @@
         {
           "nativeName": "dept_no",
           "declaredType": "TEXT",
+          "bigqueryName": "dept_no",
+          "bigqueryType": "STRING",
           "sourceNotNull": true,
           "primaryKeyPosition": 2,
           "sourceDeclaredNullable": false,
@@ -315,6 +364,8 @@
         {
           "nativeName": "from_date",
           "declaredType": "TEXT",
+          "bigqueryName": "from_date",
+          "bigqueryType": "STRING",
           "sourceNotNull": true,
           "primaryKeyPosition": 0,
           "sourceDeclaredNullable": false,
@@ -326,6 +377,8 @@
         {
           "nativeName": "to_date",
           "declaredType": "TEXT",
+          "bigqueryName": "to_date",
+          "bigqueryType": "STRING",
           "sourceNotNull": true,
           "primaryKeyPosition": 0,
           "sourceDeclaredNullable": false,
@@ -336,13 +389,27 @@
         }
       ],
       "records": {
-        "path": "dept_manager_f1b717ef/records.json",
-        "sha256": "8ad46e71b453c4507f6308515ad4fc8fc65aa27df1ff9ab366056d4d179bbfb7"
+        "path": "dept_manager/records.json",
+        "sha256": "769e0ffedfb353fe2c3f7122d5f26aeb8b165302029859a52cd21eef6a682667"
+      },
+      "files": {
+        "ingitdb": {
+          "path": "ingitdb/dept_manager/records.json",
+          "sha256": "769e0ffedfb353fe2c3f7122d5f26aeb8b165302029859a52cd21eef6a682667"
+        },
+        "bigqueryRows": {
+          "path": "bigquery/dept_manager/rows.ndjson",
+          "sha256": "4d7f2aa4880d88725983cb038685016b3fbf2cb441e191ed65a50d2347aca9e7"
+        },
+        "bigquerySchema": {
+          "path": "bigquery/dept_manager/schema.json",
+          "sha256": "acbb449bd17a8911fa34b5954bde3ab8d3fe041e67a50b1b6ab481c314fa52c8"
+        }
       }
     },
     {
       "nativeName": "employees",
-      "collection": "employees_c49de3d2",
+      "collection": "employees",
       "rows": 1024,
       "primaryKey": [
         "emp_no"
@@ -356,6 +423,8 @@
         {
           "nativeName": "emp_no",
           "declaredType": "INTEGER",
+          "bigqueryName": "emp_no",
+          "bigqueryType": "INTEGER",
           "sourceNotNull": true,
           "primaryKeyPosition": 1,
           "sourceDeclaredNullable": false,
@@ -367,6 +436,8 @@
         {
           "nativeName": "birth_date",
           "declaredType": "TEXT",
+          "bigqueryName": "birth_date",
+          "bigqueryType": "STRING",
           "sourceNotNull": true,
           "primaryKeyPosition": 0,
           "sourceDeclaredNullable": false,
@@ -378,6 +449,8 @@
         {
           "nativeName": "first_name",
           "declaredType": "TEXT",
+          "bigqueryName": "first_name",
+          "bigqueryType": "STRING",
           "sourceNotNull": true,
           "primaryKeyPosition": 0,
           "sourceDeclaredNullable": false,
@@ -389,6 +462,8 @@
         {
           "nativeName": "last_name",
           "declaredType": "TEXT",
+          "bigqueryName": "last_name",
+          "bigqueryType": "STRING",
           "sourceNotNull": true,
           "primaryKeyPosition": 0,
           "sourceDeclaredNullable": false,
@@ -400,6 +475,8 @@
         {
           "nativeName": "gender",
           "declaredType": "TEXT",
+          "bigqueryName": "gender",
+          "bigqueryType": "STRING",
           "sourceNotNull": true,
           "primaryKeyPosition": 0,
           "sourceDeclaredNullable": false,
@@ -411,6 +488,8 @@
         {
           "nativeName": "hire_date",
           "declaredType": "TEXT",
+          "bigqueryName": "hire_date",
+          "bigqueryType": "STRING",
           "sourceNotNull": true,
           "primaryKeyPosition": 0,
           "sourceDeclaredNullable": false,
@@ -421,13 +500,27 @@
         }
       ],
       "records": {
-        "path": "employees_c49de3d2/records.json",
-        "sha256": "dc64ca1a852b0c5cbd09dc265d2c7e7775411976e3f88cb97c582a9942681a86"
+        "path": "employees/records.json",
+        "sha256": "f420c5ef83a783c94a59cd5144f8e6cacca5d4a4dbdc42f8374e0ec9d376b2a0"
+      },
+      "files": {
+        "ingitdb": {
+          "path": "ingitdb/employees/records.json",
+          "sha256": "f420c5ef83a783c94a59cd5144f8e6cacca5d4a4dbdc42f8374e0ec9d376b2a0"
+        },
+        "bigqueryRows": {
+          "path": "bigquery/employees/rows.ndjson",
+          "sha256": "96f35181a634153374d281af5308dac20e0e747bca8d09c63dfffc8476677f59"
+        },
+        "bigquerySchema": {
+          "path": "bigquery/employees/schema.json",
+          "sha256": "f4a55e4785c8cea027d88a9dec15012472fcaa4887cbbbaac5efc64b33486b98"
+        }
       }
     },
     {
       "nativeName": "salaries",
-      "collection": "salaries_e5420726",
+      "collection": "salaries",
       "rows": 9876,
       "primaryKey": [
         "emp_no",
@@ -484,6 +577,8 @@
         {
           "nativeName": "emp_no",
           "declaredType": "INTEGER",
+          "bigqueryName": "emp_no",
+          "bigqueryType": "INTEGER",
           "sourceNotNull": true,
           "primaryKeyPosition": 1,
           "sourceDeclaredNullable": false,
@@ -495,6 +590,8 @@
         {
           "nativeName": "salary",
           "declaredType": "INTEGER",
+          "bigqueryName": "salary",
+          "bigqueryType": "INTEGER",
           "sourceNotNull": true,
           "primaryKeyPosition": 0,
           "sourceDeclaredNullable": false,
@@ -506,6 +603,8 @@
         {
           "nativeName": "from_date",
           "declaredType": "TEXT",
+          "bigqueryName": "from_date",
+          "bigqueryType": "STRING",
           "sourceNotNull": true,
           "primaryKeyPosition": 2,
           "sourceDeclaredNullable": false,
@@ -517,6 +616,8 @@
         {
           "nativeName": "to_date",
           "declaredType": "TEXT",
+          "bigqueryName": "to_date",
+          "bigqueryType": "STRING",
           "sourceNotNull": true,
           "primaryKeyPosition": 0,
           "sourceDeclaredNullable": false,
@@ -527,13 +628,27 @@
         }
       ],
       "records": {
-        "path": "salaries_e5420726/records.json",
-        "sha256": "02c57440b28c75898a804a3e19b56f711f56a141eb1d9e24d4fd713312ab9107"
+        "path": "salaries/records.json",
+        "sha256": "7eb3cf034a28e47412199671c56ce23fb942967791c328b7548019fe7d9eea59"
+      },
+      "files": {
+        "ingitdb": {
+          "path": "ingitdb/salaries/records.json",
+          "sha256": "7eb3cf034a28e47412199671c56ce23fb942967791c328b7548019fe7d9eea59"
+        },
+        "bigqueryRows": {
+          "path": "bigquery/salaries/rows.ndjson",
+          "sha256": "548a57920f358c04d40ca23a674220bcf0be3d8c9602fe567da35cc4a8da3dcd"
+        },
+        "bigquerySchema": {
+          "path": "bigquery/salaries/schema.json",
+          "sha256": "25b560b33035fecbcbe45c9308639cbde23e63f1a13f11e0b8d95dc17a0b8c64"
+        }
       }
     },
     {
       "nativeName": "titles",
-      "collection": "titles_d9ad71b7",
+      "collection": "titles",
       "rows": 1524,
       "primaryKey": [
         "emp_no",
@@ -593,6 +708,8 @@
         {
           "nativeName": "emp_no",
           "declaredType": "INTEGER",
+          "bigqueryName": "emp_no",
+          "bigqueryType": "INTEGER",
           "sourceNotNull": true,
           "primaryKeyPosition": 1,
           "sourceDeclaredNullable": false,
@@ -604,6 +721,8 @@
         {
           "nativeName": "title",
           "declaredType": "TEXT",
+          "bigqueryName": "title",
+          "bigqueryType": "STRING",
           "sourceNotNull": true,
           "primaryKeyPosition": 2,
           "sourceDeclaredNullable": false,
@@ -615,6 +734,8 @@
         {
           "nativeName": "from_date",
           "declaredType": "TEXT",
+          "bigqueryName": "from_date",
+          "bigqueryType": "STRING",
           "sourceNotNull": true,
           "primaryKeyPosition": 3,
           "sourceDeclaredNullable": false,
@@ -626,6 +747,8 @@
         {
           "nativeName": "to_date",
           "declaredType": "TEXT",
+          "bigqueryName": "to_date",
+          "bigqueryType": "STRING",
           "sourceNotNull": false,
           "primaryKeyPosition": 0,
           "sourceDeclaredNullable": true,
@@ -636,11 +759,29 @@
         }
       ],
       "records": {
-        "path": "titles_d9ad71b7/records.json",
-        "sha256": "d63d14412335f2f780848179143b2bed361b2e2e52f798dbf6b03502164761d7"
+        "path": "titles/records.json",
+        "sha256": "115cdb6b86a3cc2ad81bef7c8cdde3379c580fffc0055923346358a25768cc3b"
+      },
+      "files": {
+        "ingitdb": {
+          "path": "ingitdb/titles/records.json",
+          "sha256": "115cdb6b86a3cc2ad81bef7c8cdde3379c580fffc0055923346358a25768cc3b"
+        },
+        "bigqueryRows": {
+          "path": "bigquery/titles/rows.ndjson",
+          "sha256": "b25cfdf309d211d499ab6870c5a1ffa6041cd36fc5d633cbf9fff9ebb19cc4bc"
+        },
+        "bigquerySchema": {
+          "path": "bigquery/titles/schema.json",
+          "sha256": "2e94a648b19bb9286f28f9b2a778fbdc83a62e42a17f7881195d840ebbb39b97"
+        }
       }
     }
   ],
+  "sourceCollections": {
+    "path": "ingitdb/.ingitdb/source-collections.json",
+    "sha256": "bc0266c9defbb3b17de5120100f1f0c1d821ecbd981861ea61fe21b7994434e6"
+  },
   "views": [
     {
       "name": "current_dept_emp",
@@ -664,5 +805,19 @@
       "sourceSql": "CREATE VIEW dept_emp_latest_date AS\n              SELECT emp_no, MAX(from_date) AS from_date, MAX(to_date) AS to_date\n              FROM dept_emp GROUP BY emp_no"
     }
   ],
-  "status": "prepared-not-hosted"
+  "status": "prepared-not-hosted",
+  "nativeParity": {
+    "format": "demodb-datatug-parity/v1",
+    "sourceSha256": "46b49dd0e141cd8db66d57680a10febfccc15e6f54dc7b8f3c2316b55e11c5f0",
+    "tables": 6,
+    "rows": 13584,
+    "dataChecked": true,
+    "metadataAndDataMatch": true,
+    "sourceOrphans": 0,
+    "errorCount": 0,
+    "report": {
+      "path": "ingitdb/native-parity-report.json",
+      "sha256": "490f5f6a95e63f579667c42dd8b2c2329500252a870d0684867ed2298b98d38c"
+    }
+  }
 }

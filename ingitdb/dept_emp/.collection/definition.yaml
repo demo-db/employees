@@ -1,0 +1,62 @@
+record_file:
+    name: records.json
+    format: json
+    type: map[$record_id]map[$field_name]any
+columns:
+    emp_no:
+        type: int
+        required: true
+    dept_no:
+        type: string
+        required: true
+    from_date:
+        type: string
+        required: true
+    to_date:
+        type: string
+        required: true
+columns_order:
+    - emp_no
+    - dept_no
+    - from_date
+    - to_date
+primary_key:
+    - emp_no
+    - dept_no
+source_schema:
+    key_mode: source-primary-key
+    source_definition_json: '{"dialect":"sqlite","createSql":"CREATE TABLE dept_emp (\n                emp_no INTEGER NOT NULL,\n                dept_no TEXT NOT NULL,\n                from_date TEXT NOT NULL,\n                to_date TEXT NOT NULL,\n                PRIMARY KEY (emp_no, dept_no),\n                FOREIGN KEY (emp_no) REFERENCES employees(emp_no) ON DELETE CASCADE,\n                FOREIGN KEY (dept_no) REFERENCES departments(dept_no) ON DELETE CASCADE\n            )","columns":[{"name":"emp_no","declaredType":"INTEGER","notNull":true,"primaryKeyPosition":1},{"name":"dept_no","declaredType":"TEXT","notNull":true,"primaryKeyPosition":2},{"name":"from_date","declaredType":"TEXT","notNull":true},{"name":"to_date","declaredType":"TEXT","notNull":true}],"indexes":[{"name":"sqlite_autoindex_dept_emp_1","unique":true,"origin":"pk","columns":[{"position":0,"name":"emp_no","key":true,"collation":"BINARY"},{"position":1,"name":"dept_no","key":true,"collation":"BINARY"},{"position":2,"key":false,"collation":"BINARY"}]}]}'
+    constraint_validation: provider-preflight-passed
+    relationship_comparison: provider-native
+    fields:
+        - name: emp_no
+          type: int
+          nullable: false
+        - name: dept_no
+          type: string
+          nullable: false
+        - name: from_date
+          type: string
+          nullable: false
+        - name: to_date
+          type: string
+          nullable: false
+    foreign_keys:
+        - name: dept_emp_fk_0
+          fields:
+            - dept_no
+          referenced_collection: departments
+          referenced_fields:
+            - dept_no
+          source_enforcement: disabled
+          on_update: NO ACTION
+          on_delete: CASCADE
+        - name: dept_emp_fk_1
+          fields:
+            - emp_no
+          referenced_collection: employees
+          referenced_fields:
+            - emp_no
+          source_enforcement: disabled
+          on_update: NO ACTION
+          on_delete: CASCADE

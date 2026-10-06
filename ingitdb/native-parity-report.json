@@ -1,0 +1,33 @@
+{
+  "format": "demodb-datatug-parity/v1",
+  "datasetId": "employees",
+  "sourceSha256": "46b49dd0e141cd8db66d57680a10febfccc15e6f54dc7b8f3c2316b55e11c5f0",
+  "tables": 6,
+  "views": 2,
+  "rows": 13584,
+  "sourceOrphans": 0,
+  "dataChecked": true,
+  "metadataMatches": true,
+  "metadataAndDataMatch": true,
+  "nativeConstraintEquivalent": false,
+  "errors": [],
+  "errorCount": 0,
+  "nativeLimitations": [
+    "departments: source primary-key field values are not maintained by native record-ID updates",
+    "departments: source UNIQUE/CHECK constraints are metadata after export",
+    "dept_emp: source foreign keys and actions are metadata; native target does not enforce SQLite semantics",
+    "dept_emp: source primary-key field values are not maintained by native record-ID updates",
+    "dept_emp: source UNIQUE/CHECK constraints are metadata after export",
+    "dept_manager: source foreign keys and actions are metadata; native target does not enforce SQLite semantics",
+    "dept_manager: source primary-key field values are not maintained by native record-ID updates",
+    "dept_manager: source UNIQUE/CHECK constraints are metadata after export",
+    "employees: source primary-key field values are not maintained by native record-ID updates",
+    "employees: source UNIQUE/CHECK constraints are metadata after export",
+    "salaries: source foreign keys and actions are metadata; native target does not enforce SQLite semantics",
+    "salaries: source primary-key field values are not maintained by native record-ID updates",
+    "salaries: source UNIQUE/CHECK constraints are metadata after export",
+    "titles: source foreign keys and actions are metadata; native target does not enforce SQLite semantics",
+    "titles: source primary-key field values are not maintained by native record-ID updates",
+    "titles: source UNIQUE/CHECK constraints are metadata after export"
+  ]
+}

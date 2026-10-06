@@ -1,6 +1,6 @@
-departments_fc3bfaae: departments_fc3bfaae
-dept_emp_a9828463: dept_emp_a9828463
-dept_manager_f1b717ef: dept_manager_f1b717ef
-employees_c49de3d2: employees_c49de3d2
-salaries_e5420726: salaries_e5420726
-titles_d9ad71b7: titles_d9ad71b7
+departments: departments
+dept_emp: dept_emp
+dept_manager: dept_manager
+employees: employees
+salaries: salaries
+titles: titles
