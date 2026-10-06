@@ -1,0 +1,307 @@
+{
+  "format": "demodb-ingitdb-export/v1",
+  "datasetId": "employees",
+  "source": {
+    "repository": "https://github.com/datacharmer/test_db",
+    "revision": "e324b56193ca506ab7cc1ab143a9153d8c4535d7",
+    "providerRepository": "https://github.com/demo-db/employees",
+    "providerCommit": "2069e26e8fdb60bdb16507f75569a579cf3da7cf",
+    "providerContractSha256": "83bc1f52480c1917451e726261fda83e4bdd5ea44ef81b90462f33a8a6234443",
+    "fixtureSha256": "46b49dd0e141cd8db66d57680a10febfccc15e6f54dc7b8f3c2316b55e11c5f0",
+    "fixtureBytes": 876544
+  },
+  "rowCount": 13584,
+  "tables": [
+    {
+      "nativeName": "departments",
+      "collection": "departments_fc3bfaae",
+      "rows": 9,
+      "primaryKey": [
+        "dept_no"
+      ],
+      "transportId": "encoded-native-primary-key",
+      "foreignKeys": [],
+      "columns": [
+        {
+          "nativeName": "dept_no",
+          "declaredType": "TEXT",
+          "encoding": "native-json"
+        },
+        {
+          "nativeName": "dept_name",
+          "declaredType": "TEXT",
+          "encoding": "native-json"
+        }
+      ],
+      "records": {
+        "path": "departments_fc3bfaae/records.json",
+        "sha256": "c0ce0a2081531897bae15b64190ebf316ef94f3619a30a10284eecf0b029fe57"
+      }
+    },
+    {
+      "nativeName": "dept_emp",
+      "collection": "dept_emp_a9828463",
+      "rows": 1127,
+      "primaryKey": [
+        "emp_no",
+        "dept_no"
+      ],
+      "transportId": "encoded-native-primary-key",
+      "foreignKeys": [
+        {
+          "id": 0,
+          "sequence": 0,
+          "table": "departments",
+          "from": "dept_no",
+          "to": "dept_no"
+        },
+        {
+          "id": 1,
+          "sequence": 0,
+          "table": "employees",
+          "from": "emp_no",
+          "to": "emp_no"
+        }
+      ],
+      "columns": [
+        {
+          "nativeName": "emp_no",
+          "declaredType": "INTEGER",
+          "encoding": "native-json"
+        },
+        {
+          "nativeName": "dept_no",
+          "declaredType": "TEXT",
+          "encoding": "native-json"
+        },
+        {
+          "nativeName": "from_date",
+          "declaredType": "TEXT",
+          "encoding": "native-json"
+        },
+        {
+          "nativeName": "to_date",
+          "declaredType": "TEXT",
+          "encoding": "native-json"
+        }
+      ],
+      "records": {
+        "path": "dept_emp_a9828463/records.json",
+        "sha256": "df00b0afcaf1977d8c6013ba3525a9d417233519966e04e82ee2b498a919ac3a"
+      }
+    },
+    {
+      "nativeName": "dept_manager",
+      "collection": "dept_manager_f1b717ef",
+      "rows": 24,
+      "primaryKey": [
+        "emp_no",
+        "dept_no"
+      ],
+      "transportId": "encoded-native-primary-key",
+      "foreignKeys": [
+        {
+          "id": 0,
+          "sequence": 0,
+          "table": "departments",
+          "from": "dept_no",
+          "to": "dept_no"
+        },
+        {
+          "id": 1,
+          "sequence": 0,
+          "table": "employees",
+          "from": "emp_no",
+          "to": "emp_no"
+        }
+      ],
+      "columns": [
+        {
+          "nativeName": "emp_no",
+          "declaredType": "INTEGER",
+          "encoding": "native-json"
+        },
+        {
+          "nativeName": "dept_no",
+          "declaredType": "TEXT",
+          "encoding": "native-json"
+        },
+        {
+          "nativeName": "from_date",
+          "declaredType": "TEXT",
+          "encoding": "native-json"
+        },
+        {
+          "nativeName": "to_date",
+          "declaredType": "TEXT",
+          "encoding": "native-json"
+        }
+      ],
+      "records": {
+        "path": "dept_manager_f1b717ef/records.json",
+        "sha256": "8ad46e71b453c4507f6308515ad4fc8fc65aa27df1ff9ab366056d4d179bbfb7"
+      }
+    },
+    {
+      "nativeName": "employees",
+      "collection": "employees_c49de3d2",
+      "rows": 1024,
+      "primaryKey": [
+        "emp_no"
+      ],
+      "transportId": "encoded-native-primary-key",
+      "foreignKeys": [],
+      "columns": [
+        {
+          "nativeName": "emp_no",
+          "declaredType": "INTEGER",
+          "encoding": "native-json"
+        },
+        {
+          "nativeName": "birth_date",
+          "declaredType": "TEXT",
+          "encoding": "native-json"
+        },
+        {
+          "nativeName": "first_name",
+          "declaredType": "TEXT",
+          "encoding": "native-json"
+        },
+        {
+          "nativeName": "last_name",
+          "declaredType": "TEXT",
+          "encoding": "native-json"
+        },
+        {
+          "nativeName": "gender",
+          "declaredType": "TEXT",
+          "encoding": "native-json"
+        },
+        {
+          "nativeName": "hire_date",
+          "declaredType": "TEXT",
+          "encoding": "native-json"
+        }
+      ],
+      "records": {
+        "path": "employees_c49de3d2/records.json",
+        "sha256": "dc64ca1a852b0c5cbd09dc265d2c7e7775411976e3f88cb97c582a9942681a86"
+      }
+    },
+    {
+      "nativeName": "salaries",
+      "collection": "salaries_e5420726",
+      "rows": 9876,
+      "primaryKey": [
+        "emp_no",
+        "from_date"
+      ],
+      "transportId": "encoded-native-primary-key",
+      "foreignKeys": [
+        {
+          "id": 0,
+          "sequence": 0,
+          "table": "employees",
+          "from": "emp_no",
+          "to": "emp_no"
+        }
+      ],
+      "columns": [
+        {
+          "nativeName": "emp_no",
+          "declaredType": "INTEGER",
+          "encoding": "native-json"
+        },
+        {
+          "nativeName": "salary",
+          "declaredType": "INTEGER",
+          "encoding": "native-json"
+        },
+        {
+          "nativeName": "from_date",
+          "declaredType": "TEXT",
+          "encoding": "native-json"
+        },
+        {
+          "nativeName": "to_date",
+          "declaredType": "TEXT",
+          "encoding": "native-json"
+        }
+      ],
+      "records": {
+        "path": "salaries_e5420726/records.json",
+        "sha256": "02c57440b28c75898a804a3e19b56f711f56a141eb1d9e24d4fd713312ab9107"
+      }
+    },
+    {
+      "nativeName": "titles",
+      "collection": "titles_d9ad71b7",
+      "rows": 1524,
+      "primaryKey": [
+        "emp_no",
+        "title",
+        "from_date"
+      ],
+      "transportId": "encoded-native-primary-key",
+      "foreignKeys": [
+        {
+          "id": 0,
+          "sequence": 0,
+          "table": "employees",
+          "from": "emp_no",
+          "to": "emp_no"
+        }
+      ],
+      "columns": [
+        {
+          "nativeName": "emp_no",
+          "declaredType": "INTEGER",
+          "encoding": "native-json"
+        },
+        {
+          "nativeName": "title",
+          "declaredType": "TEXT",
+          "encoding": "native-json"
+        },
+        {
+          "nativeName": "from_date",
+          "declaredType": "TEXT",
+          "encoding": "native-json"
+        },
+        {
+          "nativeName": "to_date",
+          "declaredType": "TEXT",
+          "encoding": "native-json"
+        }
+      ],
+      "records": {
+        "path": "titles_d9ad71b7/records.json",
+        "sha256": "d63d14412335f2f780848179143b2bed361b2e2e52f798dbf6b03502164761d7"
+      }
+    }
+  ],
+  "views": [
+    {
+      "name": "current_dept_emp",
+      "status": "source-definition-only",
+      "columns": [
+        "emp_no",
+        "dept_no",
+        "from_date",
+        "to_date"
+      ],
+      "sourceSql": "CREATE VIEW current_dept_emp AS\n              SELECT l.emp_no, d.dept_no, l.from_date, l.to_date\n              FROM dept_emp AS d\n              INNER JOIN dept_emp_latest_date AS l\n                ON d.emp_no = l.emp_no AND d.from_date = l.from_date AND l.to_date = d.to_date"
+    },
+    {
+      "name": "dept_emp_latest_date",
+      "status": "source-definition-only",
+      "columns": [
+        "emp_no",
+        "from_date",
+        "to_date"
+      ],
+      "sourceSql": "CREATE VIEW dept_emp_latest_date AS\n              SELECT emp_no, MAX(from_date) AS from_date, MAX(to_date) AS to_date\n              FROM dept_emp GROUP BY emp_no"
+    }
+  ],
+  "status": "prepared-not-hosted"
+}
