@@ -1,0 +1,56 @@
+record_file:
+    name: records.json
+    format: json
+    type: map[$record_id]map[$field_name]any
+columns:
+    emp_no:
+        type: int
+        required: true
+    birth_date:
+        type: string
+        required: true
+    first_name:
+        type: string
+        required: true
+    last_name:
+        type: string
+        required: true
+    gender:
+        type: string
+        required: true
+    hire_date:
+        type: string
+        required: true
+columns_order:
+    - emp_no
+    - birth_date
+    - first_name
+    - last_name
+    - gender
+    - hire_date
+primary_key:
+    - emp_no
+source_schema:
+    key_mode: source-primary-key
+    source_definition_json: '{"dialect":"sqlite","createSql":"CREATE TABLE employees (\n                emp_no INTEGER NOT NULL PRIMARY KEY,\n                birth_date TEXT NOT NULL,\n                first_name TEXT NOT NULL,\n                last_name TEXT NOT NULL,\n                gender TEXT NOT NULL CHECK (gender IN (''M'', ''F'')),\n                hire_date TEXT NOT NULL\n            )","columns":[{"name":"emp_no","declaredType":"INTEGER","notNull":true,"primaryKeyPosition":1},{"name":"birth_date","declaredType":"TEXT","notNull":true},{"name":"first_name","declaredType":"TEXT","notNull":true},{"name":"last_name","declaredType":"TEXT","notNull":true},{"name":"gender","declaredType":"TEXT","notNull":true},{"name":"hire_date","declaredType":"TEXT","notNull":true}]}'
+    constraint_validation: provider-preflight-passed
+    relationship_comparison: provider-native
+    fields:
+        - name: emp_no
+          type: int
+          nullable: false
+        - name: birth_date
+          type: string
+          nullable: false
+        - name: first_name
+          type: string
+          nullable: false
+        - name: last_name
+          type: string
+          nullable: false
+        - name: gender
+          type: string
+          nullable: false
+        - name: hire_date
+          type: string
+          nullable: false

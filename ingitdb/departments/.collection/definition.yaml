@@ -1,0 +1,33 @@
+record_file:
+    name: records.json
+    format: json
+    type: map[$record_id]map[$field_name]any
+columns:
+    dept_no:
+        type: string
+        required: true
+    dept_name:
+        type: string
+        required: true
+columns_order:
+    - dept_no
+    - dept_name
+primary_key:
+    - dept_no
+source_schema:
+    key_mode: source-primary-key
+    source_definition_json: '{"dialect":"sqlite","createSql":"CREATE TABLE departments (\n                dept_no TEXT NOT NULL PRIMARY KEY,\n                dept_name TEXT NOT NULL UNIQUE\n            )","columns":[{"name":"dept_no","declaredType":"TEXT","notNull":true,"primaryKeyPosition":1},{"name":"dept_name","declaredType":"TEXT","notNull":true}],"indexes":[{"name":"sqlite_autoindex_departments_2","unique":true,"origin":"u","columns":[{"position":0,"name":"dept_name","key":true,"collation":"BINARY"},{"position":1,"key":false,"collation":"BINARY"}]},{"name":"sqlite_autoindex_departments_1","unique":true,"origin":"pk","columns":[{"position":0,"name":"dept_no","key":true,"collation":"BINARY"},{"position":1,"key":false,"collation":"BINARY"}]}]}'
+    constraint_validation: provider-preflight-passed
+    relationship_comparison: provider-native
+    fields:
+        - name: dept_no
+          type: string
+          nullable: false
+        - name: dept_name
+          type: string
+          nullable: false
+    indexes:
+        - name: sqlite_autoindex_departments_2
+          fields:
+            - dept_name
+          unique: true
