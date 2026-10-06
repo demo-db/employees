@@ -7,3 +7,14 @@ The upstream project says the sample data is fabricated and does not correspond 
 The pinned upstream source and reproducible selection are documented in [`data-source/README.md`](data-source/README.md). Run `python3 scripts/fetch-source.py --destination /tmp/employees-source` to download and hash-check every required upstream file, then `python3 scripts/rebuild-source.py --source-dir /tmp/employees-source --check` to verify the checked-in compressed SQLite fixture. The converter preserves native table and view names, primary/unique keys and foreign keys, ISO dates, integer salary values, and exact text values. It does not invent rows or currency information.
 
 The verified read-only OVDB mount provides record lookups and query access; writes remain disabled.
+
+## Native inGitDB snapshot
+
+The `ingitdb/` directory contains 13,584 source table rows across 6 collections. It is a Git-backed, queryable snapshot prepared from the pinned SQLite fixture. Verify and query it with the installed inGitDB CLI:
+
+```sh
+ingitdb validate --path ingitdb
+ingitdb select --path ingitdb --from departments_fc3bfaae --limit 1 --format json
+```
+
+[`ingitdb/export-manifest.json`](ingitdb/export-manifest.json) maps each native table to its collection, row count, original primary and foreign keys, column types, transport encodings, and SHA-256 of its record file. The source fixture SHA-256 is `46b49dd0e141cd8db66d57680a10febfccc15e6f54dc7b8f3c2316b55e11c5f0`. These bytes were exported against provider commit `2069e26e8fdb60bdb16507f75569a579cf3da7cf`; the source fixture hash also matches this repository's pinned fixture. Record keys encode native primary keys where present; keyless tables use stable ordinal IDs, which are not native keys. Native key relationships are descriptive metadata, not enforced in this snapshot. Exact decimal values travel as strings and binary values as base64 where marked in column metadata. Source view definitions are retained as metadata only; they are not materialized in inGitDB. Source rights and original notices remain in [`data-source/`](data-source/) and [`LICENSE`](LICENSE).

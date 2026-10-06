@@ -1,0 +1,11 @@
+{
+  "pk-W1sic3RyIiwiZDAwMSJdXQ": {"dept_name":"Marketing","dept_no":"d001"},
+  "pk-W1sic3RyIiwiZDAwMiJdXQ": {"dept_name":"Finance","dept_no":"d002"},
+  "pk-W1sic3RyIiwiZDAwMyJdXQ": {"dept_name":"Human Resources","dept_no":"d003"},
+  "pk-W1sic3RyIiwiZDAwNCJdXQ": {"dept_name":"Production","dept_no":"d004"},
+  "pk-W1sic3RyIiwiZDAwNSJdXQ": {"dept_name":"Development","dept_no":"d005"},
+  "pk-W1sic3RyIiwiZDAwNiJdXQ": {"dept_name":"Quality Management","dept_no":"d006"},
+  "pk-W1sic3RyIiwiZDAwNyJdXQ": {"dept_name":"Sales","dept_no":"d007"},
+  "pk-W1sic3RyIiwiZDAwOCJdXQ": {"dept_name":"Research","dept_no":"d008"},
+  "pk-W1sic3RyIiwiZDAwOSJdXQ": {"dept_name":"Customer Service","dept_no":"d009"}
+}
