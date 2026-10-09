@@ -1,16 +1,16 @@
 {
-  "modelspec": "1.0-draft",
+  "modelspec": "1.0-draft-2",
   "module": {
     "id": "github.com/demo-db/employees/employees",
     "name": "employees",
     "version": "0.1.0"
   },
-  "entities": {
+  "records": {
     "departments": {
       "key": [
         "dept_no"
       ],
-      "properties": {
+      "fields": {
         "dept_no": {
           "required": true,
           "type": "string"
@@ -26,14 +26,14 @@
         "emp_no",
         "dept_no"
       ],
-      "properties": {
+      "fields": {
         "emp_no": {
           "required": true,
-          "entity": "employees"
+          "record": "employees"
         },
         "dept_no": {
           "required": true,
-          "entity": "departments"
+          "record": "departments"
         },
         "from_date": {
           "required": true,
@@ -50,14 +50,14 @@
         "emp_no",
         "dept_no"
       ],
-      "properties": {
+      "fields": {
         "emp_no": {
           "required": true,
-          "entity": "employees"
+          "record": "employees"
         },
         "dept_no": {
           "required": true,
-          "entity": "departments"
+          "record": "departments"
         },
         "from_date": {
           "required": true,
@@ -73,7 +73,7 @@
       "key": [
         "emp_no"
       ],
-      "properties": {
+      "fields": {
         "emp_no": {
           "required": true,
           "type": "int"
@@ -105,10 +105,10 @@
         "emp_no",
         "from_date"
       ],
-      "properties": {
+      "fields": {
         "emp_no": {
           "required": true,
-          "entity": "employees"
+          "record": "employees"
         },
         "salary": {
           "required": true,
@@ -130,10 +130,10 @@
         "title",
         "from_date"
       ],
-      "properties": {
+      "fields": {
         "emp_no": {
           "required": true,
-          "entity": "employees"
+          "record": "employees"
         },
         "title": {
           "required": true,
