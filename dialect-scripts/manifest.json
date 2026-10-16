@@ -1,39 +1,40 @@
 {
-  "attribution": "Employees sample database by MySQL AB (2007/2008), Fusheng Wang and Carlo Zaniolo (original data), Giuseppe Maxia (current schema) and Patrick Crews (XML-to-relational conversion), https://github.com/datacharmer/test_db. Reduced 1,024-employee subset, adapted. CC BY-SA 3.0 Unported, https://creativecommons.org/licenses/by-sa/3.0/legalcode",
+  "attribution": "Employees sample database, Copyright (C) 2007,2008, MySQL AB, https://github.com/datacharmer/test_db, CC BY-SA 3.0 Unported. Reduced 1,024-employee subset adapted by DemoDB (full notice below)",
   "format": "demodb-dialect-scripts/v1",
   "id": "employees",
   "scripts": {
     "mysql": {
       "inputs": {
-        "attribution": "Employees sample database by MySQL AB (2007/2008), Fusheng Wang and Carlo Zaniolo (original data), Giuseppe Maxia (current schema) and Patrick Crews (XML-to-relational conversion), https://github.com/datacharmer/test_db. Reduced 1,024-employee subset, adapted. CC BY-SA 3.0 Unported, https://creativecommons.org/licenses/by-sa/3.0/legalcode",
+        "attribution": "Employees sample database, Copyright (C) 2007,2008, MySQL AB, https://github.com/datacharmer/test_db, CC BY-SA 3.0 Unported. Reduced 1,024-employee subset adapted by DemoDB (full notice below)",
         "dialect": "mysql",
         "edition": "DemoDB contract edition, identical to the SQLite/CSV/JSON",
         "generator": {
-          "checksumsSha256": "c736ea434e107cdf0189c7f0b82b08e81c1475cb92e593d5aafc6c7b7b434f60",
-          "tag": "v0.97.1"
+          "checksumsSha256": "19d91f8ded312b945095bc14e5bda6fad667f0913580c3d0903c582300a4d8db",
+          "tag": "v0.100.0"
         },
         "license": "CC-BY-SA-3.0",
         "name": "employees",
+        "noticeSha256": "489fb3a0f08b1a330406513fcd5f70a38f3314d656e03bd0a2b6e67186b750a2",
         "sqliteSha256": "46b49dd0e141cd8db66d57680a10febfccc15e6f54dc7b8f3c2316b55e11c5f0"
       },
-      "inputsSha256": "50295f766ef6187822c9eb15bff9a07106fb6bc44596689560a7e295685d5b10",
+      "inputsSha256": "1d2f1d0015d5c4da4479edfb2dd070e8baf36e87ef1b80baa3162b32da1386e8",
       "report": {
-        "bytes": 2786,
+        "bytes": 2787,
         "path": "dialect-scripts/employees.mysql.report.json",
-        "sha256": "f0c4b8ee11d07574577e9470ee3bf9bb2787d0cd21c79c058023a06fbeba6028",
+        "sha256": "abf8f5468ca9aaeb18e4b5b23c2d023ebd241f1a43716e8fae65b6e03ef74d10",
         "warnings": {
           "key-type-bounded": 7,
           "view-not-carried": 2
         }
       },
       "stored": {
-        "decodedBytes": 595971,
-        "decodedSha256": "12e9833275e076189f3312d0e6dc6c56180aa1df2ada0e9c236b14fe41677102",
+        "decodedBytes": 597346,
+        "decodedSha256": "ab50b052f3f5e59ff7a0a9e050925e52dc74cc9f13687eb88579e2894ab49352",
         "files": [
           {
-            "bytes": 595971,
+            "bytes": 597346,
             "path": "dialect-scripts/employees.mysql.sql",
-            "sha256": "12e9833275e076189f3312d0e6dc6c56180aa1df2ada0e9c236b14fe41677102"
+            "sha256": "ab50b052f3f5e59ff7a0a9e050925e52dc74cc9f13687eb88579e2894ab49352"
           }
         ],
         "mode": "plain"
@@ -43,13 +44,13 @@
         "differences": 0,
         "engine": "MySQL 8.4.11 (official mysql:8.4 image)",
         "image": "mysql:8.4@sha256:24989179f58856db763f418010c1169fecc944e3ec1ea7e921572d83eb070f70",
-        "loadedWith": "mysql client of the same image, --default-character-set=utf8mb4 --skip-commands --skip-system-command, stop at first error",
+        "loadedWith": "--default-character-set=utf8mb4 --skip-commands --skip-system-command, stop at first error",
         "rows": 13584,
-        "scriptSha256": "12e9833275e076189f3312d0e6dc6c56180aa1df2ada0e9c236b14fe41677102",
+        "scriptSha256": "ab50b052f3f5e59ff7a0a9e050925e52dc74cc9f13687eb88579e2894ab49352",
         "secondLoadRefusedAtMarkerTable": true,
         "tables": 6,
         "valuesCompared": 56366,
-        "verifier": "datatug-cli internal/crossverify TestJourneyMySQL at v0.97.1, run locally over this exact script; reads source and target through Go drivers",
+        "verifier": "datatug-cli internal/crossverify TestJourneyMySQL at v0.100.0, run locally over this exact script, loaded with the header's client flags and again with the plain client; reads source and target through Go drivers",
         "verifierWarnings": 9
       }
     }
