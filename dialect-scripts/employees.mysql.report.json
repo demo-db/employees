@@ -1,0 +1,95 @@
+{
+  "dataset": "employees",
+  "dialect": "mysql",
+  "format": "demodb-dialect-report/v1",
+  "generator": "v0.97.1",
+  "tables": [
+    {
+      "columns": 2,
+      "name": "departments",
+      "rows": 9
+    },
+    {
+      "columns": 6,
+      "name": "employees",
+      "rows": 1024
+    },
+    {
+      "columns": 4,
+      "name": "dept_emp",
+      "rows": 1127
+    },
+    {
+      "columns": 4,
+      "name": "dept_manager",
+      "rows": 24
+    },
+    {
+      "columns": 4,
+      "name": "titles",
+      "rows": 1524
+    },
+    {
+      "columns": 4,
+      "name": "salaries",
+      "rows": 9876
+    }
+  ],
+  "totals": {
+    "checkConstraints": 1,
+    "columns": 24,
+    "foreignKeys": 6,
+    "indexes": 0,
+    "primaryKeys": 6,
+    "rows": 13584,
+    "tables": 6,
+    "uniqueConstraints": 1
+  },
+  "warnings": [
+    {
+      "kind": "view-not-carried",
+      "message": "views are written in the SQL dialect of their engine and are not translated across engines",
+      "object": "current_dept_emp"
+    },
+    {
+      "kind": "key-type-bounded",
+      "message": "a key column is carried as VARCHAR(255) (declared \"TEXT\"): MySQL cannot index an unbounded type; its longest value is 18",
+      "object": "departments.dept_name"
+    },
+    {
+      "kind": "key-type-bounded",
+      "message": "a key column is carried as VARCHAR(255) (declared \"TEXT\"): MySQL cannot index an unbounded type; its longest value is 4",
+      "object": "departments.dept_no"
+    },
+    {
+      "kind": "key-type-bounded",
+      "message": "a key column is carried as VARCHAR(255) (declared \"TEXT\"): MySQL cannot index an unbounded type; its longest value is 4",
+      "object": "dept_emp.dept_no"
+    },
+    {
+      "kind": "view-not-carried",
+      "message": "views are written in the SQL dialect of their engine and are not translated across engines",
+      "object": "dept_emp_latest_date"
+    },
+    {
+      "kind": "key-type-bounded",
+      "message": "a key column is carried as VARCHAR(255) (declared \"TEXT\"): MySQL cannot index an unbounded type; its longest value is 4",
+      "object": "dept_manager.dept_no"
+    },
+    {
+      "kind": "key-type-bounded",
+      "message": "a key column is carried as VARCHAR(255) (declared \"TEXT\"): MySQL cannot index an unbounded type; its longest value is 10",
+      "object": "salaries.from_date"
+    },
+    {
+      "kind": "key-type-bounded",
+      "message": "a key column is carried as VARCHAR(255) (declared \"TEXT\"): MySQL cannot index an unbounded type; its longest value is 10",
+      "object": "titles.from_date"
+    },
+    {
+      "kind": "key-type-bounded",
+      "message": "a key column is carried as VARCHAR(255) (declared \"TEXT\"): MySQL cannot index an unbounded type; its longest value is 18",
+      "object": "titles.title"
+    }
+  ]
+}

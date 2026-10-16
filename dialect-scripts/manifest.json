@@ -1,0 +1,57 @@
+{
+  "attribution": "Employees sample database by MySQL AB (2007/2008), Fusheng Wang and Carlo Zaniolo (original data), Giuseppe Maxia (current schema) and Patrick Crews (XML-to-relational conversion), https://github.com/datacharmer/test_db. Reduced 1,024-employee subset, adapted. CC BY-SA 3.0 Unported, https://creativecommons.org/licenses/by-sa/3.0/legalcode",
+  "format": "demodb-dialect-scripts/v1",
+  "id": "employees",
+  "scripts": {
+    "mysql": {
+      "inputs": {
+        "attribution": "Employees sample database by MySQL AB (2007/2008), Fusheng Wang and Carlo Zaniolo (original data), Giuseppe Maxia (current schema) and Patrick Crews (XML-to-relational conversion), https://github.com/datacharmer/test_db. Reduced 1,024-employee subset, adapted. CC BY-SA 3.0 Unported, https://creativecommons.org/licenses/by-sa/3.0/legalcode",
+        "dialect": "mysql",
+        "edition": "DemoDB contract edition, identical to the SQLite/CSV/JSON",
+        "generator": {
+          "checksumsSha256": "c736ea434e107cdf0189c7f0b82b08e81c1475cb92e593d5aafc6c7b7b434f60",
+          "tag": "v0.97.1"
+        },
+        "license": "CC-BY-SA-3.0",
+        "name": "employees",
+        "sqliteSha256": "46b49dd0e141cd8db66d57680a10febfccc15e6f54dc7b8f3c2316b55e11c5f0"
+      },
+      "inputsSha256": "50295f766ef6187822c9eb15bff9a07106fb6bc44596689560a7e295685d5b10",
+      "report": {
+        "bytes": 2786,
+        "path": "dialect-scripts/employees.mysql.report.json",
+        "sha256": "f0c4b8ee11d07574577e9470ee3bf9bb2787d0cd21c79c058023a06fbeba6028",
+        "warnings": {
+          "key-type-bounded": 7,
+          "view-not-carried": 2
+        }
+      },
+      "stored": {
+        "decodedBytes": 595971,
+        "decodedSha256": "12e9833275e076189f3312d0e6dc6c56180aa1df2ada0e9c236b14fe41677102",
+        "files": [
+          {
+            "bytes": 595971,
+            "path": "dialect-scripts/employees.mysql.sql",
+            "sha256": "12e9833275e076189f3312d0e6dc6c56180aa1df2ada0e9c236b14fe41677102"
+          }
+        ],
+        "mode": "plain"
+      },
+      "verification": {
+        "date": "2026-10-16",
+        "differences": 0,
+        "engine": "MySQL 8.4.11 (official mysql:8.4 image)",
+        "image": "mysql:8.4@sha256:24989179f58856db763f418010c1169fecc944e3ec1ea7e921572d83eb070f70",
+        "loadedWith": "mysql client of the same image, --default-character-set=utf8mb4 --skip-commands --skip-system-command, stop at first error",
+        "rows": 13584,
+        "scriptSha256": "12e9833275e076189f3312d0e6dc6c56180aa1df2ada0e9c236b14fe41677102",
+        "secondLoadRefusedAtMarkerTable": true,
+        "tables": 6,
+        "valuesCompared": 56366,
+        "verifier": "datatug-cli internal/crossverify TestJourneyMySQL at v0.97.1, run locally over this exact script; reads source and target through Go drivers",
+        "verifierWarnings": 9
+      }
+    }
+  }
+}

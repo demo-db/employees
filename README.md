@@ -38,3 +38,21 @@ python3 ../websites/scripts/hosting-tools/validate_datatug_exports.py . ingitdb 
 ```
 
 The source primary keys, foreign keys, UNIQUE and CHECK constraints, defaults, collations and SQL actions are preserved as source metadata; inGitDB does not enforce their full SQL behavior on later record edits. Source rights and original notices remain in [`data-source/`](data-source/) and [`LICENSE`](LICENSE).
+
+## MySQL script (`dialect-scripts/`)
+
+`dialect-scripts/employees.mysql.sql` is a MySQL 8 script that creates and fills this database. It is written by the DataTug SQL-script exporter
+(`datatug db copy --to sqlscript:///<file>?dialect=mysql`, release v0.97.1, pinned by SHA-256 in `demo-db/websites` `config/dialect-scripts.json`) from the pinned
+SQLite fixture, loaded into a real MySQL 8.4 and compared with the fixture. It is labelled "DemoDB contract edition, identical to the SQLite/CSV/JSON": the same tables and
+rows, with everything MySQL cannot carry exactly (for example views) listed in the script header and in `dialect-scripts/employees.mysql.report.json`.
+`dialect-scripts/manifest.json` records the inputs (the SQLite SHA-256, the exporter pin, the label, the licence from `manifest.json` and the attribution below), the stored and
+decoded SHA-256, and the verification run. Nothing else in this repository changes: the files are outside `artifacts/`, so the contract, the checksums and the model are untouched.
+
+```sh
+mysql --default-character-set=utf8mb4 --skip-commands --skip-system-command --database <empty database> < dialect-scripts/employees.mysql.sql
+node websites/scripts/dialect-scripts.mjs check --provider .   # no datatug binary and no Docker needed
+```
+
+Employees is CC BY-SA 3.0: the generated script is derived from it and is shared under the same licence, with the credits below.
+
+The licence (CC-BY-SA-3.0) and this attribution are in the script header: Employees sample database by MySQL AB (2007/2008), Fusheng Wang and Carlo Zaniolo (original data), Giuseppe Maxia (current schema) and Patrick Crews (XML-to-relational conversion), https://github.com/datacharmer/test_db. Reduced 1,024-employee subset, adapted. CC BY-SA 3.0 Unported, https://creativecommons.org/licenses/by-sa/3.0/legalcode
