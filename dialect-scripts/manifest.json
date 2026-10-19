@@ -3,25 +3,88 @@
   "format": "demodb-dialect-scripts/v1",
   "id": "employees",
   "scripts": {
+    "mssql": {
+      "inputs": {
+        "attribution": "Employees sample database, Copyright (C) 2007,2008, MySQL AB, https://github.com/datacharmer/test_db, CC BY-SA 3.0 Unported. Reduced 1,024-employee subset adapted by DemoDB (full notice below)",
+        "dialect": "mssql",
+        "edition": "DemoDB contract edition, identical to the SQLite/CSV/JSON",
+        "generator": {
+          "checksumsSha256": "32c36126ec6c8961a7b493c21f18b63ecb0146faff84089d89566a659fd975fd",
+          "tag": "v0.103.4"
+        },
+        "license": "CC-BY-SA-3.0",
+        "name": "employees",
+        "noticeSha256": "b818f686a57043e314db2034ffb10e39c3a844d5645a1d3cc8b86036a1582e58",
+        "sqliteSha256": "46b49dd0e141cd8db66d57680a10febfccc15e6f54dc7b8f3c2316b55e11c5f0"
+      },
+      "inputsSha256": "d6ea7d5dfd427f264e21a4703e6ab24c2c7075673b1f4920e7623af8c2f8dea5",
+      "report": {
+        "bytes": 3611,
+        "path": "dialect-scripts/employees.mssql.report.json",
+        "sha256": "f6e52401c9b5b8c2d7d77bb3b9e64c07e98c431e0513d01579c2c324299a3334",
+        "warnings": {
+          "key-type-bounded": 7,
+          "type-widened": 3,
+          "view-not-carried": 2
+        }
+      },
+      "stored": {
+        "decodedBytes": 632602,
+        "decodedSha256": "19d116ff14febd02a05b55e4fcf72286a8e8c14a4f4a26380c9bfbc1664f3264",
+        "files": [
+          {
+            "bytes": 632602,
+            "path": "dialect-scripts/employees.sqlserver.sql",
+            "sha256": "19d116ff14febd02a05b55e4fcf72286a8e8c14a4f4a26380c9bfbc1664f3264"
+          }
+        ],
+        "mode": "plain"
+      },
+      "verification": {
+        "clientVersion": "Version 18.7.0001.1 Linux",
+        "date": "2026-10-19",
+        "differences": 0,
+        "engine": "Microsoft SQL Server 2022 (RTM-CU27-GDR) (KB5126934) - 16.0.4305.5 (X64) / collation SQL_Latin1_General_CP1_CI_AS",
+        "image": "mcr.microsoft.com/mssql/server:2022-latest@sha256:cf8f0ab2ebe61feec2eed2629061a07d247f791c2a8ddda74a4ac9f06a291718",
+        "loadSeconds": 1.1,
+        "loadedWith": "-X -x -b -f 65001 -i, stop at first error",
+        "rows": 13584,
+        "scriptSha256": "19d116ff14febd02a05b55e4fcf72286a8e8c14a4f4a26380c9bfbc1664f3264",
+        "secondLoadRefusedAtMarkerTable": true,
+        "tableRows": {
+          "departments": 9,
+          "dept_emp": 1127,
+          "dept_manager": 24,
+          "employees": 1024,
+          "salaries": 9876,
+          "titles": 1524
+        },
+        "tables": 6,
+        "valuesCompared": 56366,
+        "verifier": "datatug-cli internal/crossverify TestJourneyMSSQL at v0.103.4, run locally over this exact script, loaded with sqlcmd -X -x -b -f 65001 -i from the file inside the server container; reads source and target through Go drivers",
+        "verifierSeconds": 1,
+        "verifierWarnings": 12
+      }
+    },
     "mysql": {
       "inputs": {
         "attribution": "Employees sample database, Copyright (C) 2007,2008, MySQL AB, https://github.com/datacharmer/test_db, CC BY-SA 3.0 Unported. Reduced 1,024-employee subset adapted by DemoDB (full notice below)",
         "dialect": "mysql",
         "edition": "DemoDB contract edition, identical to the SQLite/CSV/JSON",
         "generator": {
-          "checksumsSha256": "19d91f8ded312b945095bc14e5bda6fad667f0913580c3d0903c582300a4d8db",
-          "tag": "v0.100.0"
+          "checksumsSha256": "32c36126ec6c8961a7b493c21f18b63ecb0146faff84089d89566a659fd975fd",
+          "tag": "v0.103.4"
         },
         "license": "CC-BY-SA-3.0",
         "name": "employees",
         "noticeSha256": "489fb3a0f08b1a330406513fcd5f70a38f3314d656e03bd0a2b6e67186b750a2",
         "sqliteSha256": "46b49dd0e141cd8db66d57680a10febfccc15e6f54dc7b8f3c2316b55e11c5f0"
       },
-      "inputsSha256": "1d2f1d0015d5c4da4479edfb2dd070e8baf36e87ef1b80baa3162b32da1386e8",
+      "inputsSha256": "1cf725efc7bde5149e285392b16f181f3a63faf75f95431c4e6bcddae67ffcc1",
       "report": {
         "bytes": 2787,
         "path": "dialect-scripts/employees.mysql.report.json",
-        "sha256": "abf8f5468ca9aaeb18e4b5b23c2d023ebd241f1a43716e8fae65b6e03ef74d10",
+        "sha256": "9824f20aa1eb1ade3c4447e18bb392e64f54f0518f59f75d27c85b0a0ae21e6d",
         "warnings": {
           "key-type-bounded": 7,
           "view-not-carried": 2
@@ -29,29 +92,104 @@
       },
       "stored": {
         "decodedBytes": 597346,
-        "decodedSha256": "ab50b052f3f5e59ff7a0a9e050925e52dc74cc9f13687eb88579e2894ab49352",
+        "decodedSha256": "94be048782227f19a5e3ff0781e16bf84a4c3de790d526de99895336ce8e40fd",
         "files": [
           {
             "bytes": 597346,
             "path": "dialect-scripts/employees.mysql.sql",
-            "sha256": "ab50b052f3f5e59ff7a0a9e050925e52dc74cc9f13687eb88579e2894ab49352"
+            "sha256": "94be048782227f19a5e3ff0781e16bf84a4c3de790d526de99895336ce8e40fd"
           }
         ],
         "mode": "plain"
       },
       "verification": {
-        "date": "2026-10-16",
+        "clientVersion": "mysql  Ver 8.4.11 for Linux on aarch64 (MySQL Community Server - GPL)",
+        "date": "2026-10-19",
         "differences": 0,
-        "engine": "MySQL 8.4.11 (official mysql:8.4 image)",
+        "engine": "MySQL 8.4.11",
         "image": "mysql:8.4@sha256:24989179f58856db763f418010c1169fecc944e3ec1ea7e921572d83eb070f70",
+        "loadSeconds": 0.1,
         "loadedWith": "--default-character-set=utf8mb4 --skip-commands --skip-system-command, stop at first error",
         "rows": 13584,
-        "scriptSha256": "ab50b052f3f5e59ff7a0a9e050925e52dc74cc9f13687eb88579e2894ab49352",
+        "scriptSha256": "94be048782227f19a5e3ff0781e16bf84a4c3de790d526de99895336ce8e40fd",
         "secondLoadRefusedAtMarkerTable": true,
+        "tableRows": {
+          "departments": 9,
+          "dept_emp": 1127,
+          "dept_manager": 24,
+          "employees": 1024,
+          "salaries": 9876,
+          "titles": 1524
+        },
         "tables": 6,
         "valuesCompared": 56366,
-        "verifier": "datatug-cli internal/crossverify TestJourneyMySQL at v0.100.0, run locally over this exact script, loaded with the header's client flags and again with the plain client; reads source and target through Go drivers",
+        "verifier": "datatug-cli internal/crossverify TestJourneyMySQL at v0.103.4, run locally over this exact script, loaded with the header's client flags and again with the plain client; reads source and target through Go drivers",
+        "verifierSeconds": 0.7,
         "verifierWarnings": 9
+      }
+    },
+    "oracle": {
+      "inputs": {
+        "attribution": "Employees sample database, Copyright (C) 2007,2008, MySQL AB, https://github.com/datacharmer/test_db, CC BY-SA 3.0 Unported. Reduced 1,024-employee subset adapted by DemoDB (full notice below)",
+        "dialect": "oracle",
+        "edition": "DemoDB contract edition, identical to the SQLite/CSV/JSON",
+        "generator": {
+          "checksumsSha256": "32c36126ec6c8961a7b493c21f18b63ecb0146faff84089d89566a659fd975fd",
+          "tag": "v0.103.4"
+        },
+        "license": "CC-BY-SA-3.0",
+        "name": "employees",
+        "noticeSha256": "9de551c4204a98688e0f2b153b1cfdc65e07b06c9c144eb8663c9f4501db91e0",
+        "sqliteSha256": "46b49dd0e141cd8db66d57680a10febfccc15e6f54dc7b8f3c2316b55e11c5f0"
+      },
+      "inputsSha256": "1aed6f503ed3f90ab6f29fd41ec9c8bee875ceea29fec45749229b91c6e75aec",
+      "report": {
+        "bytes": 3954,
+        "path": "dialect-scripts/employees.oracle.report.json",
+        "sha256": "cdfa455a09c50058a796c1da64ce1d6728cbd5d2bce35f0207da6a201ceb47a8",
+        "warnings": {
+          "collation-not-carried": 1,
+          "key-type-bounded": 7,
+          "type-widened": 3,
+          "view-not-carried": 2
+        }
+      },
+      "stored": {
+        "decodedBytes": 612245,
+        "decodedSha256": "b694ebb699ef4fbc7c24eb902cc0fd81627040831ce1ae1f134d5d183293d89c",
+        "files": [
+          {
+            "bytes": 612245,
+            "path": "dialect-scripts/employees.oracle.sql",
+            "sha256": "b694ebb699ef4fbc7c24eb902cc0fd81627040831ce1ae1f134d5d183293d89c"
+          }
+        ],
+        "mode": "plain"
+      },
+      "verification": {
+        "clientVersion": "SQL*Plus: Release 23.26.3.0.0 - Production Version 23.26.3.0.0",
+        "date": "2026-10-19",
+        "differences": 0,
+        "engine": "Oracle AI Database 26ai Free Release 23.26.3.0.0 - Develop, Learn, and Run for Free / compatible 23.6.0 / AL32UTF8 / MAX_STRING_SIZE STANDARD",
+        "image": "gvenzl/oracle-free:23-slim@sha256:6d61d267a3b978c24c5ac1790e62e927416a0aec446bd86e4b3a1527562757bd",
+        "loadSeconds": 1.7,
+        "loadedWith": "NLS_LANG=.AL32UTF8 sqlplus -L -S, stop at first error",
+        "rows": 13584,
+        "scriptSha256": "b694ebb699ef4fbc7c24eb902cc0fd81627040831ce1ae1f134d5d183293d89c",
+        "secondLoadRefusedAtMarkerTable": true,
+        "tableRows": {
+          "departments": 9,
+          "dept_emp": 1127,
+          "dept_manager": 24,
+          "employees": 1024,
+          "salaries": 9876,
+          "titles": 1524
+        },
+        "tables": 6,
+        "valuesCompared": 56366,
+        "verifier": "datatug-cli internal/crossverify TestJourneyOracle at v0.103.4, run locally over this exact script, loaded with NLS_LANG=.AL32UTF8 sqlplus -L -S from the file inside the server container; reads source and target through Go drivers",
+        "verifierSeconds": 1.4,
+        "verifierWarnings": 13
       }
     }
   }
